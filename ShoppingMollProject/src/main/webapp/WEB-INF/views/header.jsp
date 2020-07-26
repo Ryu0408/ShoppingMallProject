@@ -25,7 +25,7 @@
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<!-- Brand/logo -->
   		<a class="navbar-brand" href="#">
-    		<img src="${pageContext.request.contextPath}/img/main/logo.png" alt="logo" style="width:80px;">
+    		<img src="${pageContext.request.contextPath}/img/header/logo.png" alt="logo" style="width:80px;">
   		</a>
   
 		<!-- Links -->
