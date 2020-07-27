@@ -30,7 +30,7 @@
       		<h6 class="text-uppercase font-weight-bold">FAVORITE MENU</h6>
         	<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
        		<p style = "font-family:Nanum Pen Script;">
-         		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">로그인</a>
+         		<a class="dark-grey-text" href="${pageContext.request.contextPath}/login/" style="text-decoration: none; color:#212529;">로그인</a>
         	</p>
         	<p style = "font-family:Nanum Pen Script;">
           		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">회원가입</a>

@@ -60,7 +60,7 @@
 		<!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-    			<a class="nav-link" href="#">Login</a>
+    			<a class="nav-link" href="${pageContext.request.contextPath}/login/">Login</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
    				<a class="nav-link" href="#">Join us</a>
