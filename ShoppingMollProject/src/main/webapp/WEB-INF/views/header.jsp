@@ -25,35 +25,35 @@
 </head>
 <body>
 <header>
-<div class="container">
+<div class="container fixed-top">
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<!-- Brand/logo -->
-  		<a class="navbar-brand" href="#">
+  		<a class="navbar-brand" href="${pageContext.request.contextPath}/">
     		<img src="${pageContext.request.contextPath}/img/header/logo.png" alt="logo" style="width:80px;">
   		</a>
   
 		<!-- Links -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item" style="font-family:Ranchers;">
-    			<a class="nav-link" href="#">NEW</a>
+    			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/new/">NEW</a>
     		</li>
  			<li class="nav-item" style="font-family:Ranchers;">
-   				<a class="nav-link" href="#">OUTER</a>
+   				<a class="nav-link" href="${pageContext.request.contextPath}/productpage/outer/">OUTER</a>
  			</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">TOP</a>
+      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/top/">TOP</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">SKIRT</a>
+      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/skirt/">SKIRT</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">DRESS</a>
+      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/dress/">DRESS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">PANTS</a>
+      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/pants/">PANTS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">ACCESSORY</a>
+      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/accessory/">ACCESSORY</a>
     		</li>
   		</ul>
 

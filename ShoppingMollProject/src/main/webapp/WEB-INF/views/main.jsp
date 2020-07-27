@@ -16,7 +16,7 @@
     border-bottom: transparent
 }
 </style>
-<div class="container">
+<div class="container" style = "margin-top: 120px">
   	<div id="main" class="carousel slide" data-ride="carousel">
   		<ul class="carousel-indicators">
     		<li data-target="#main" data-slide-to="0" class="active"></li>
