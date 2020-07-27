@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- Footer -->
 <footer>
-
-<!-- Footer Links -->
 <div class="container text-center text-md-left mt-5">
     <!-- Grid row -->
     <div class="row mt-3 dark-grey-text">
@@ -31,48 +28,47 @@
      	</div>
 		<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
       		<h6 class="text-uppercase font-weight-bold">FAVORITE MENU</h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-       	<p style = "font-family:Nanum Pen Script;">
-          <a class="dark-grey-text" href="#!">로그인</a>
-        </p>
-        <p style = "font-family:Nanum Pen Script;">
-          <a class="dark-grey-text" href="#!">로그인</a>
-        </p>
+        	<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+       		<p style = "font-family:Nanum Pen Script;">
+         		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">로그인</a>
+        	</p>
+        	<p style = "font-family:Nanum Pen Script;">
+          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">회원가입</a>
+        	</p>
+        	<p style = "font-family:Nanum Pen Script;">
+          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">관심상품</a>
+        	</p>
+        	<p style = "font-family:Nanum Pen Script;">
+          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">장바구니</a>
+        	</p>
+        	<p style = "font-family:Nanum Pen Script;">
+        		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">주문조회</a>
+        	</p>
+        	<p style = "font-family:Nanum Pen Script;">
+        		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">마이페이지</a>
+        	</p>
       	</div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-        <p>
-          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-        <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-        <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-      </div>
-      <!-- Grid column -->
-
+      	<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        	<h6 class="text-uppercase font-weight-bold">RETURN / EXCHANGE</h6>
+        	<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        	<p style = "font-family:Nanum Pen Script;">
+				부산광역시 연제구 묘봉산로 4 한일UNI APT 101동 402호<br><br>
+				자세한 교환 반품절차 안내는 문의란 및 공지사항을 참고해주세요
+        	</p>
+      	</div>
     </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
-    <a class="dark-grey-text" href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-
+</div>
+<div class="container">
+	<div class="footer-copyright text-center text-black-50 py-3 b bg-light">
+  	 	<p style = "font-family:Nanum Pen Script;">
+			COMPANY : <b>SH브랜드</b>	/ OWNER : <b>류승환</b> / BUSINESS LICENSE : <b>2008211609</b><br>
+			ADDRESS : <b>부산광역시 연제구 묘봉산로 4 한일UNI APT 101동 402호</b> / TEL : <b>1555-5555</b><br>
+			MALL-ORDER LICENSE : 신고준비중 / CEO : <b>류승환(fbtmdghks11@naver.com)</b> / CONTACT US : <br>
+			<b>2020 Copyright © SH브랜드 ALL RIGHTS RESERVED. HOSTING CAFE24 | DESIGNED By SH</b><br>
+		</p>
+	</div>
+</div>
 </footer>
-<!-- Footer -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery, then Popper.js, then Bootstrap JS -->
