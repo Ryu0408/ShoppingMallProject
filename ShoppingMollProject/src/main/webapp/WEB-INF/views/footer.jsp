@@ -63,7 +63,7 @@
   	 	<p style = "font-family:Nanum Pen Script;">
 			COMPANY : <b>SH브랜드</b>	/ OWNER : <b>류승환</b> / BUSINESS LICENSE : <b>2008211609</b><br>
 			ADDRESS : <b>부산광역시 연제구 묘봉산로 4 한일UNI APT 101동 402호</b> / TEL : <b>1555-5555</b><br>
-			MALL-ORDER LICENSE : 신고준비중 / CEO : <b>류승환(fbtmdghks11@naver.com)</b> / CONTACT US : <br>
+			MALL-ORDER LICENSE : 신고준비중 / CEO : <b>류승환(fbtmdghks11@naver.com)</b> / CONTACT US : <a href="mailto:fbtmdghks11@naver.com"><img src="${pageContext.request.contextPath}/img/footer/mail.png" alt="mail" style="width:20px;"></a><br>
 			<b>2020 Copyright © SH브랜드 ALL RIGHTS RESERVED. HOSTING CAFE24 | DESIGNED By SH</b><br>
 		</p>
 	</div>

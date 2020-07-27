@@ -15,6 +15,7 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 	</style>
 
 	<title>ShoppingMoll</title>
