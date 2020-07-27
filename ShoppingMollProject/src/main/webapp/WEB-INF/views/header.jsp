@@ -10,12 +10,15 @@
     <link rel="stylesheet" 				
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-	crossorigin="anonymous"> 
+	crossorigin="anonymous">
+	<link href="${pageContext.request.contextPath}/css/mdb.min.css" rel="stylesheet">
+	 
 	
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');	
 	</style>
 
 	<title>ShoppingMoll</title>
@@ -41,16 +44,13 @@
       			<a class="nav-link" href="#">TOP</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">BOTTOM</a>
+      			<a class="nav-link" href="#">SKIRT</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
       			<a class="nav-link" href="#">DRESS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">BAG</a>
-    		</li>
-    		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="#">SHOSE</a>
+      			<a class="nav-link" href="#">PANTS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
       			<a class="nav-link" href="#">ACCESSORY</a>

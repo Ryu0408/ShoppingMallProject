@@ -61,10 +61,11 @@
 <div class="container">
 	<div class="footer-copyright text-center text-black-50 py-3 b bg-light">
   	 	<p style = "font-family:Nanum Pen Script;">
-			COMPANY : <b>SH브랜드</b>	/ OWNER : <b>류승환</b> / BUSINESS LICENSE : <b>2008211609</b><br>
-			ADDRESS : <b>부산광역시 연제구 묘봉산로 4 한일UNI APT 101동 402호</b> / TEL : <b>1555-5555</b><br>
-			MALL-ORDER LICENSE : 신고준비중 / CEO : <b>류승환(fbtmdghks11@naver.com)</b> / CONTACT US : <a href="mailto:fbtmdghks11@naver.com"><img src="${pageContext.request.contextPath}/img/footer/mail.png" alt="mail" style="width:20px;"></a><br>
-			<b>2020 Copyright © SH브랜드 ALL RIGHTS RESERVED. HOSTING CAFE24 | DESIGNED By SH</b><br>
+			COMPANY : <b class="font-weight-bold">SH브랜드</b>	/ OWNER : <b class="font-weight-bold">류승환</b> / BUSINESS LICENSE : <b class="font-weight-bold">2008211609</b><br>
+			ADDRESS : <b class="font-weight-bold">부산광역시 연제구 묘봉산로 4 한일UNI APT 101동 402호</b> / TEL : <b class="font-weight-bold">1555-5555</b><br>
+			MALL-ORDER LICENSE : 신고준비중 / CEO : <b class="font-weight-bold">류승환(fbtmdghks11@naver.com)</b> / CONTACT US : 
+			<a href="mailto:fbtmdghks11@naver.com"><img src="${pageContext.request.contextPath}/img/footer/mail.png" alt="mail" style="width:20px;"></a><br>
+			<b class="font-weight-bold">2020 Copyright © SH브랜드 ALL RIGHTS RESERVED. HOSTING CAFE24 | DESIGNED By SH</b><br>
 		</p>
 	</div>
 </div>
@@ -78,3 +79,4 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
 integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mdb.min.js"></script>
