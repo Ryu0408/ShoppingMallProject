@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath">${pageContext.request.contextPath }</c:set>
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
@@ -20,7 +22,7 @@
 	border-right:hidden;
 }
 </style>
-<div class="container" style = "margin-top: 300px; text-align: center;">
+<div class="container overlap" style = "text-align: center;">
 	<h6 class="text-uppercase font-weight-bold" style ="font-size: 30px">LOGIN</h6>
 	<br>
 	<ul class="nav nav-tabs" style = "width:430px;margin-left: auto;margin-right: auto;">
@@ -35,8 +37,8 @@
   		<div class="tab-pane container active" id="member">
   			<form action="/action_page.php">
     			<div class="form-group" style = "width:430px;margin-left: auto;margin-right: auto;">
-      				<input type="text" class="form-control" placeholder="아이디" name="ID">
-      				<input type="text" class="form-control" placeholder="바밀번호" name="Password">
+      				<input type="text" class="form-control" placeholder="아이디" name="id">
+      				<input type="text" class="form-control" placeholder="바밀번호" name="password">
     			</div>
    				<button type="submit" class="btn btn-secondary" style="width:320px; font-size: 15px; background-color: #0a090aad !important;">
    					<b class="font-weight-bold">로그인</b>
@@ -83,10 +85,10 @@
   		지금 회원이 되어 다양한 이벤트에 참여해보세요.<br>
   		회원만의 특별한 혜택을 가장 먼저 만나보세요.
   	</p>
-  	<img src="${pageContext.request.contextPath}/img/login/event1.jpg">
-  	<img src="${pageContext.request.contextPath}/img/login/event2.jpg">
-  	<img src="${pageContext.request.contextPath}/img/login/event3.jpg">
-  	<img src="${pageContext.request.contextPath}/img/login/event4.jpg">
+  	<img src="${cpath}/img/login/event1.jpg">
+  	<img src="${cpath}/img/login/event2.jpg">
+  	<img src="${cpath}/img/login/event3.jpg">
+  	<img src="${cpath}/img/login/event4.jpg">
 </div>
 <!-- Footer Include -->
 <jsp:include page = "footer.jsp"/>

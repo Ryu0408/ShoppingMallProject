@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath">${pageContext.request.contextPath }</c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +13,17 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
 	crossorigin="anonymous">
-	<link href="${pageContext.request.contextPath}/css/mdb.min.css" rel="stylesheet">
-	 
+	<link href="${cpath}/css/mdb.min.css" rel="stylesheet">
 	
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');	
+		.overlap{ padding-top: 90px; }
+		@media screen and (max-width: 575px) {
+   			 .overlap{ padding-top: 305px; }
+   		}
 	</style>
 
 	<title>ShoppingMoll</title>
@@ -28,42 +33,42 @@
 <div class="container fixed-top">
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<!-- Brand/logo -->
-  		<a class="navbar-brand" href="${pageContext.request.contextPath}/">
-    		<img src="${pageContext.request.contextPath}/img/header/logo.png" alt="logo" style="width:80px;">
+  		<a class="navbar-brand" href="${cpath}/">
+    		<img src="${cpath}/img/header/logo.png" alt="logo" style="width:80px;">
   		</a>
   
 		<!-- Links -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item" style="font-family:Ranchers;">
-    			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/new/">NEW</a>
+    			<a class="nav-link" href="${cpath}/productpage/new/">NEW</a>
     		</li>
  			<li class="nav-item" style="font-family:Ranchers;">
-   				<a class="nav-link" href="${pageContext.request.contextPath}/productpage/outer/">OUTER</a>
+   				<a class="nav-link" href="${cpath}/productpage/outer/">OUTER</a>
  			</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/top/">TOP</a>
+      			<a class="nav-link" href="${cpath}/productpage/top/">TOP</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/skirt/">SKIRT</a>
+      			<a class="nav-link" href="${cpath}/productpage/skirt/">SKIRT</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/dress/">DRESS</a>
+      			<a class="nav-link" href="${cpath}/productpage/dress/">DRESS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/pants/">PANTS</a>
+      			<a class="nav-link" href="${cpath}/productpage/pants/">PANTS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${pageContext.request.contextPath}/productpage/accessory/">ACCESSORY</a>
+      			<a class="nav-link" href="${cpath}/productpage/accessory/">ACCESSORY</a>
     		</li>
   		</ul>
 
 		<!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-    			<a class="nav-link" href="${pageContext.request.contextPath}/login/">Login</a>
+    			<a class="nav-link" href="${cpath}/login/">Login</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-   				<a class="nav-link" href="${pageContext.request.contextPath}/join/">Join us</a>
+   				<a class="nav-link" href="${cpath}/join/">Join us</a>
  			</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Cart</a>

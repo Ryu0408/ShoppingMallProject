@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath">${pageContext.request.contextPath }</c:set>
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
@@ -16,7 +18,7 @@
     border-bottom: transparent
 }
 </style>
-<div class="container" style = "margin-top: 300px">
+<div class="container overlap">
   	<div id="main" class="carousel slide" data-ride="carousel">
   		<ul class="carousel-indicators">
     		<li data-target="#main" data-slide-to="0" class="active"></li>
@@ -26,16 +28,16 @@
   		</ul>
   		<div class="carousel-inner">
     		<div class="carousel-item active">
-      			<img src="${pageContext.request.contextPath}/img/main/mainsc1.jpg">
+      			<img src="${cpath}/img/main/mainsc1.jpg">
     		</div>
    			<div class="carousel-item">
-     			<img src="${pageContext.request.contextPath}/img/main/mainsc2.jpg">
+     			<img src="${cpath}/img/main/mainsc2.jpg">
     		</div>
     		<div class="carousel-item">
-      			<img src="${pageContext.request.contextPath}/img/main/mainsc3.jpg"> 
+      			<img src="${cpath}/img/main/mainsc3.jpg"> 
     		</div>
    			<div class="carousel-item">
-   			  	<img src="${pageContext.request.contextPath}/img/main/mainsc4.jpg">
+   			  	<img src="${cpath}/img/main/mainsc4.jpg">
     		</div>
   		</div>
   		<a class="carousel-control-prev" href="#main" data-slide="prev">
@@ -63,7 +65,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -73,7 +75,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend02.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend02.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -83,7 +85,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend03.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend03.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -93,7 +95,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend04.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend04.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -106,7 +108,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend05.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend05.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -116,7 +118,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend06.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend06.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -126,7 +128,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend07.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend07.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -136,7 +138,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend08.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend08.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -150,7 +152,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend11.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend11.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -160,7 +162,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend12.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend12.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -170,7 +172,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend13.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend13.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -180,7 +182,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend14.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend14.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -193,7 +195,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend15.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend15.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -203,7 +205,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend16.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend16.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -213,7 +215,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend17.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend17.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -223,7 +225,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend18.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend18.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -237,7 +239,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend21.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend21.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -247,7 +249,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend22.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend22.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -257,7 +259,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend23.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend23.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -267,7 +269,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend24.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend24.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -280,7 +282,7 @@
     			<div class="row">
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend25.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend25.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -290,7 +292,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend26.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend26.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -300,7 +302,7 @@
     				</div>
     				<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend27.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend27.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -310,7 +312,7 @@
     				</div>
 					<div class="col-sm-3">
     					<div class="view overlay">
-    						<img src="${pageContext.request.contextPath}/img/main/recommand/recommend28.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+    						<img src="${cpath}/img/main/recommand/recommend28.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                         	<div class="mask rgba-black-light" style = "padding: 20px; text-align: center; font-size: 25px">
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
         						<p class = "white-text" style="font-family:Nanum Pen Script; display: block">뉴트로한 감성 한가득 요 서츠 하나로 포인트 스타일링 완성:)</p>
@@ -332,7 +334,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 100%; height:350px">
 				<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -342,7 +344,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend02.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend02.jpg" class = "img-fluid" style = "width: 100%; height:350px">
               	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -352,7 +354,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend03.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend03.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -362,7 +364,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend04.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend04.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -375,7 +377,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend05.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend05.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -385,7 +387,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend06.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend06.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -395,7 +397,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend07.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend07.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -405,7 +407,7 @@
 			</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend08.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend08.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -418,7 +420,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend11.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend11.jpg" class = "img-fluid" style = "width: 100%; height:350px">
 				<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -428,7 +430,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend12.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend12.jpg" class = "img-fluid" style = "width: 100%; height:350px">
               	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -438,7 +440,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend13.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend13.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -448,7 +450,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend14.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend14.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -461,7 +463,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend15.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend15.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -471,7 +473,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend16.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend16.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -481,7 +483,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend17.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend17.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -491,7 +493,7 @@
 			</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend18.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend18.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -504,7 +506,7 @@
 		<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend21.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend21.jpg" class = "img-fluid" style = "width: 100%; height:350px">
 				<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -514,7 +516,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend22.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend22.jpg" class = "img-fluid" style = "width: 100%; height:350px">
               	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -524,7 +526,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend23.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend23.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -534,7 +536,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend24.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend24.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -547,7 +549,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend25.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend25.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -557,7 +559,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend26.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend26.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -567,7 +569,7 @@
 		</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend27.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend27.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -577,7 +579,7 @@
 			</div>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${pageContext.request.contextPath}/img/main/recommand/recommend28.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<img src="${cpath}/img/main/recommand/recommend28.jpg" class = "img-fluid" style = "width: 100%; height:350px">
                	<br>
 				<p class="font-weight-bold" style="font-family:Single Day;">[빈티지한 무드] 플라워 루즈핏 셔츠/포인트 주기 좋아요!</p>
 				<hr class = "teal accent-3">
@@ -596,7 +598,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -610,7 +612,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -624,7 +626,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -638,7 +640,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -652,7 +654,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -666,7 +668,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -680,7 +682,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -694,7 +696,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -708,7 +710,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
@@ -722,7 +724,7 @@
 	<div class="row" style="border-top: 1px solid gray">
 		<div class="col-sm-2" style = "text-align: center;">	
 			<br>
-			<img src="${pageContext.request.contextPath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
+			<img src="${cpath}/img/main/recommand/recommend01.jpg" class = "img-fluid" style = "width: 110px; height:110px">
 		</div>
 		<div class="col-sm-10">
 			<br>
