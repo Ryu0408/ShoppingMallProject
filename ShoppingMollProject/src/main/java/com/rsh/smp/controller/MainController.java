@@ -25,4 +25,9 @@ public class MainController {
 		return "login";
 	}
 	
+	@RequestMapping(value = "/join/", method = RequestMethod.GET)
+	public String join() {
+		return "join";
+	}
+	
 }

@@ -63,7 +63,7 @@
     			<a class="nav-link" href="${pageContext.request.contextPath}/login/">Login</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-   				<a class="nav-link" href="#">Join us</a>
+   				<a class="nav-link" href="${pageContext.request.contextPath}/join/">Join us</a>
  			</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Cart</a>
