@@ -69,13 +69,16 @@
       			<a class="nav-link" href="#">Cart</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Order</a>
-    		</li>
-			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Mypage</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Community</a>
+    		</li>
+    		<li class="nav-item" style="font-family:Nanum Pen Script;">
+      			<a class="nav-link" href="#">Q&A</a>
+    		</li>
+    		<li class="nav-item" style="font-family:Nanum Pen Script;">
+      			<a class="nav-link" href="#">REVIEW</a>
     		</li>
   		</ul>
 	</nav>
