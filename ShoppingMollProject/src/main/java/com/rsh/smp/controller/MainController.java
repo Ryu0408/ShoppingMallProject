@@ -1,5 +1,19 @@
 package com.rsh.smp.controller;
 
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MainController {
 
+	@Autowired ResourceLoader resourceLoader;
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
 		return "main";
@@ -27,7 +42,22 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/join/", method = RequestMethod.GET)
-	public String join() {
+	public String join(Model model) {
+		Resource resource[] = {
+				resourceLoader.getResource("classpath:agreeFiles/agreeService.txt"),
+				resourceLoader.getResource("classpath:agreeFiles/agreePrivacy.txt"),
+				resourceLoader.getResource("classpath:agreeFiles/agreeSms.txt"),
+		};
+		try {
+			for(int i = 0 ; i < resource.length ; i ++) {
+			    Path path = Paths.get(resource[i].getURI());
+			    List<String> content = Files.readAllLines(path);
+			    model.addAttribute("agree"+i, content);
+			}
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 		return "join";
 	}
 	
@@ -35,7 +65,14 @@ public class MainController {
 	@ResponseBody
 	public String checkid(String id) {
 		boolean alreadyExist = false;
-		return alreadyExist ? "이미 사용중인 계정입니다" : "사용 가능한 ID입니다";
+		return alreadyExist ? "이미 사용중인 계정입니다" : "사용 가능한 계정입니다";
+	}
+	
+	@RequestMapping(value = "/join/checkemail/", produces="application/text;charset=utf8")
+	@ResponseBody
+	public String checkemail(String email) {
+		boolean alreadyExist = false;
+		return alreadyExist ? "이미 사용중인 EMAIL입니다" : "사용 가능한 EMAIL입니다";
 	}
 	
 }

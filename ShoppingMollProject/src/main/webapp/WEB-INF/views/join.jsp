@@ -5,6 +5,7 @@
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
+
 .circle{
 	width:10px;
 	height:10px;
@@ -12,7 +13,13 @@
 	background: red;
 	display:inline
 }
+.agreeForm{
+	border: 1px solid #80808024; 
+	background: #fafafa;
+	padding: 20px;
+}
 </style>
+
 <script>
 function checkID(){
 	const id = $("#id").val();
@@ -32,17 +39,19 @@ function checkID(){
 		dataType:"text",
 		success : function(data) {
 			$("#idmsg").text(data);
-			if (data === '사용 가능한 ID입니다') {
+			if (data === '사용 가능한 계정입니다') {
 				var filter = /^[a-z]+[a-z0-9]{5,19}$/g; // 영문자로 시작하는 6~20자 영문자 또는 숫자
 				var checkid = $("#id").val();
 				if(!checkid.match(filter)){
 					$("#idmsg").text('아이디 형식에 맞지 않습니다');
 					$("#idmsg").css('color', 'red');	
+					$("#id").val('');
 				}else{
 					$("#idmsg").css('color', 'blue');	
 				}
 			} else {
 				$("#idmsg").css('color', 'red');
+				$("#id").val('');
 			}
 		},
 		error:function(data){
@@ -70,13 +79,91 @@ function checkPassword(){
 		$("#password").val('');
 		$("#password2").val('');
 	}
-
+}
+function checkEmail(){
+	const email = $("#email").val();
+	if (email === '') {
+		$("#emailmsg").text('이메일를 입력하세요');
+		$("#emailmsg").css('color', 'red');
+		return;
+	} else {
+		$("#emailmsg").text('');
+	}
+	$.ajax({
+		url:"${cpath}/join/checkemail/",
+		method : "GET",
+		data : {
+			email : email
+		},
+		dataType : "text",
+		success : function(data) {
+			$("#emailmsg").text(data);
+			if (data === '사용 가능한 EMAIL입니다') {
+				var filter = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+				var checkEmail = $("#email").val();
+				if(!checkEmail.match(filter)){
+					$("#emailmsg").text('이메일 형식에 맞지 않습니다');
+					$("#emailmsg").css('color', 'red');	
+					$("#email").val('');
+				}else{
+					$("#emailmsg").css('color', 'blue');	
+				}
+			} else {
+				$("#emailmsg").css('color', 'red');
+				$("#email").val('');
+			}
+		},
+		error : function(data) {
+			$("#emailmsg").text('서버 통신 실패');
+		}
+	})
+}
+function checkAll(){
+	const checkAll = $("#allCheck").is(":checked");
+	if(checkAll == true){
+		$("#agreeServiceCheck").prop("checked", true);
+		$("#agreePrivacyCheck").prop("checked", true);
+		$("#agreeSmsCheck").prop("checked", true);
+		$("#agreeEmailCheck").prop("checked", true);
+	}
+	else if(checkAll == false){
+		$("#agreeServiceCheck").prop("checked", false);
+		$("#agreePrivacyCheck").prop("checked", false);
+		$("#agreeSmsCheck").prop("checked", false);
+		$("#agreeEmailCheck").prop("checked", false);
+	}
+}
+function checkMenu(){
+	if($("#id").val() === ""){
+		alert('아이디를 입력해주세요');
+	}
+	else if($("#password").val() === ""){
+		alert('비밀번호 입력해주세요');
+	}
+	else if($("#password2").val() === ""){
+		alert('비밀번호 입력해주세요');
+	}
+	else if($("#name").val() === ""){
+		alert('이름을 입력해주세요');
+	}
+	else if($("#email").val() === ""){
+		alert('이메일을 입력해주세요')
+	}
+	else if($("#agreeServiceCheck").is(":checked") == false){
+		alert('이용약관에 동의해주세요')
+	}
+	else if($("#agreePrivacyCheck").is(":checked") == false){
+		alert('개인정보 수집 및 이용에 동의해주세요')
+	}
+	else{
+		$("#frm").submit();
+	}
 }
 </script>
 <div class="container overlap">
-	<h6 class="text-uppercase font-weight-bold">회원 가입</h6>
-	<br>
-	<form>
+	<form id = "frm">
+		<h6 class="text-uppercase font-weight-bold">회원 가입</h6>
+		<br>
 		<table class="table">
     		<tbody>
       			<tr>
@@ -107,14 +194,15 @@ function checkPassword(){
       			<tr>
         			<td style = "width:160px; font-size: 13px">이름<b class="text-danger">(필수)</b></td>
         			<td>
-        				<input type="text" class="form-control form-control-sm"  id = "name" name = "name"
+        				<input type="text" class="form-control form-control-sm" id = "name" name = "name"
         				style = "width:155px; float: left;">
         			</td>
       			</tr>
       			<tr>
         			<td style = "width:160px; font-size: 13px">휴대전화</td>
         			<td>
-        				<select class="form-control form-control-sm" style = "width:70px; float: left;">
+        				<select class="form-control form-control-sm" id = "phone1" name = "phone1" 
+        				style = "width:70px; float: left;">
         					<option value="010">010</option>
         					<option value="010">011</option>
         					<option value="010">016</option>
@@ -122,33 +210,80 @@ function checkPassword(){
         					<option value="010">018</option>
         					<option value="010">019</option>
         				</select>
-        				<b style = "float: left;">-</b>
-        				<input type="text" class="form-control form-control-sm" style = "width:70px; float: left;">
-        				<b style = "float: left;">-</b>
-        				<input type="text" class="form-control form-control-sm" style = "width:70px; float: left;"> 
+        				<b style = "float: left;">&nbsp;-&nbsp;</b>
+        				<input type="number" class="form-control form-control-sm" id = "phone2" name = "phone2" 
+        				style = "width:70px; float: left;">
+        				<b style = "float: left;">&nbsp;-&nbsp;</b>
+        				<input type="number" class="form-control form-control-sm" id = "phone3" name = "phone3" 
+        				 style = "width:70px; float: left;"> 
         			</td>
       			</tr>
       			<tr>
         			<td style = "width:160px; font-size: 13px">이메일<b class="text-danger">(필수)</b></td>
-        			<td>
-        				<select class="form-control form-control-sm" style = "width:70px; float: left;">
-        					<option value="010">010</option>
-        					<option value="010">011</option>
-        					<option value="010">016</option>
-        					<option value="010">017</option>
-        					<option value="010">018</option>
-        					<option value="010">019</option>
-        				</select>
-        				<b style = "float: left;">-</b>
-        				<input type="text" class="form-control form-control-sm" style = "width:70px; float: left;">
-        				<b style = "float: left;">-</b>
-        				<input type="text" class="form-control form-control-sm" style = "width:70px; float: left;">        				
+        			<td>    
+        				<input type="email" class="form-control form-control-sm"  id = "email" name = "email"
+        				style = "width:155px; float: left;" onblur="checkEmail()">
+        				<span id = "emailmsg" style="float:left; padding: 4px;font-size: 12px"></span>
         			</td>
       			</tr>
     		</tbody>
 		</table>
+		<hr style = "margin-top: -1rem;">
+		<h6 class="text-uppercase font-weight-bold">이용 약관</h6>
+		<div class = "agreeForm">
+			<div class="form-check">
+   				<input type="checkbox" class="form-check-input" id="allCheck" onclick="checkAll()">
+    			<label class="form-check-label" for="allCheck"><strong class="font-weight-bold">이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.</strong></label>
+			</div>
+		</div>
+		
+		<div class = "agreeForm">
+			<p class="font-weight-bold" style = "font-size: 13px;">[필수]이용약관 동의</p>
+  			<textarea class="form-control" rows="5" id="agreeService" readonly style="background: white;">
+<c:forEach var="content" items="${agree0 }">${content}&#10;</c:forEach>
+  			</textarea>
+			<div class="form-check" style = "padding: 0px;">
+				<strong style = "font-size:13px;">이용약관에 동의하십니까?</strong>
+   				<input type="checkbox" class="form-check-input" id="agreeServiceCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<label class="form-check-label" for="agreeServiceCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
+			</div>
+		</div>
+		
+		<div class = "agreeForm">
+			<p class="font-weight-bold" style = "font-size: 13px;">[필수]개인정보 수집 및 이용 동의</p>
+  			<textarea class="form-control" rows="5" id="agreePrivacy" readonly style="background: white;">
+<c:forEach var="content" items="${agree1 }">${content}&#10;</c:forEach>
+  			</textarea>
+			<div class="form-check" style = "padding: 0px;">
+				<strong style = "font-size:13px;">개인정보 수집 및 이용에 동의하십니까?</strong>
+   				<input type="checkbox" class="form-check-input" id="agreePrivacyCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<label class="form-check-label" for="agreePrivacyCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
+			</div>
+		</div>
+		
+		<div class = "agreeForm">
+			<p class="font-weight-bold" style = "font-size: 13px;">[선택] 쇼핑정보 수신 동의</p>
+  			<textarea class="form-control" rows="5" id="agreeSms" readonly style="background: white;">
+<c:forEach var="content" items="${agree2 }">${content}&#10;</c:forEach>
+  			</textarea>
+			<div class="form-check" style = "padding: 0px;">
+				<strong style = "font-size:13px;">SMS 수신을 동의하십니까?</strong>
+   				<input type="checkbox" class="form-check-input" id="agreeSmsCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<label class="form-check-label" for="agreeagreeSmsCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
+    			<br>
+    			<strong style = "font-size:13px;">이메일 수신을 동의하십니까?</strong>
+    			<input type="checkbox" class="form-check-input" id="agreeEmailCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<label class="form-check-label" for="agreeSmsCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
+			</div>
+		</div>
+		
+		<div class = "text-center">
+			<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+				style="width:140px; font-size: 15px; background-color: #0a090aad !important;">
+   				<b class="font-weight-bold">회원가입</b>
+   			</button>
+		</div>
 	</form>
-	<hr style = "margin-top: -1rem;">
 </div>
 <!-- Footer Include -->
 <jsp:include page = "footer.jsp"/>
