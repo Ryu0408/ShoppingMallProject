@@ -19,7 +19,7 @@
 	padding: 20px;
 }
 </style>
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function checkID(){
 	const id = $("#id").val();
@@ -149,6 +149,9 @@ function checkMenu(){
 	else if($("#email").val() === ""){
 		alert('이메일을 입력해주세요')
 	}
+	else if($("#address1").val() === "" || $("#address2").val() === "" || $("#address3").val() === ""){
+		alert('주소를 입력해주세요')
+	}
 	else if($("#agreeServiceCheck").is(":checked") == false){
 		alert('이용약관에 동의해주세요')
 	}
@@ -226,6 +229,33 @@ function checkMenu(){
         				<span id = "emailmsg" style="float:left; padding: 4px;font-size: 12px"></span>
         			</td>
       			</tr>
+      			<tr>
+        			<td style = "width:160px; font-size: 13px">주소<b class="text-danger">(필수)</b></td>
+        			<td>    
+        				<div style = "margin-bottom: 10px;">
+        					<input type="text" class="form-control form-control-sm"  id = "postCode" name = "postCode""
+        					style = "width:100px; float: left;">
+							<button type="button" class="btn btn-secondary" onClick="sample2_execDaumPostcode()"
+							style="width:64px; margin:0px; margin-left:10px; height:30px; font-size: 12px; 
+							background-color: #00000061 !important; padding: 0px;">
+								우편번호
+							</button>
+						</div>
+        				<div style = "margin-bottom: 10px;">
+							<input type="text" class="form-control form-control-sm"  id = "address" name = "address"
+							style = "width:400px; clear: both;">			
+						</div>
+						<div>
+							<input type="text" class="form-control form-control-sm"  id = "detailAddress" name = "detailAddress"
+							style = "width:400px;">		
+        					<span id = "adressmsg" style="float:left; padding: 4px;font-size: 12px"></span>
+        				</div>
+        				<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+							<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;
+							position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+						</div>
+        			</td>
+      			</tr>
     		</tbody>
 		</table>
 		<hr style = "margin-top: -1rem;">
@@ -239,8 +269,9 @@ function checkMenu(){
 		
 		<div class = "agreeForm">
 			<p class="font-weight-bold" style = "font-size: 13px;">[필수]이용약관 동의</p>
-  			<textarea class="form-control" rows="5" id="agreeService" readonly style="background: white;">
-<c:forEach var="content" items="${agree0 }">${content}&#10;</c:forEach>
+  			<textarea class="form-control" rows="7" id="agreeService" readonly 
+  			style="background: white; font-size:13px; color: gray">
+<c:forEach var="content" items="${agreeService }">${content}&#10;</c:forEach>
   			</textarea>
 			<div class="form-check" style = "padding: 0px;">
 				<strong style = "font-size:13px;">이용약관에 동의하십니까?</strong>
@@ -251,8 +282,9 @@ function checkMenu(){
 		
 		<div class = "agreeForm">
 			<p class="font-weight-bold" style = "font-size: 13px;">[필수]개인정보 수집 및 이용 동의</p>
-  			<textarea class="form-control" rows="5" id="agreePrivacy" readonly style="background: white;">
-<c:forEach var="content" items="${agree1 }">${content}&#10;</c:forEach>
+  			<textarea class="form-control" rows="7" id="agreePrivacy" readonly 
+  			style="background: white; font-size:13px; color: gray">
+<c:forEach var="content" items="${agreePrivacy }">${content}&#10;</c:forEach>
   			</textarea>
 			<div class="form-check" style = "padding: 0px;">
 				<strong style = "font-size:13px;">개인정보 수집 및 이용에 동의하십니까?</strong>
@@ -263,8 +295,9 @@ function checkMenu(){
 		
 		<div class = "agreeForm">
 			<p class="font-weight-bold" style = "font-size: 13px;">[선택] 쇼핑정보 수신 동의</p>
-  			<textarea class="form-control" rows="5" id="agreeSms" readonly style="background: white;">
-<c:forEach var="content" items="${agree2 }">${content}&#10;</c:forEach>
+  			<textarea class="form-control" rows="7" id="agreeSms" readonly 
+  			style="background: white; font-size:13px; color: gray">
+<c:forEach var="content" items="${agreeSms }">${content}&#10;</c:forEach>
   			</textarea>
 			<div class="form-check" style = "padding: 0px;">
 				<strong style = "font-size:13px;">SMS 수신을 동의하십니까?</strong>
@@ -288,4 +321,57 @@ function checkMenu(){
 <!-- Footer Include -->
 <jsp:include page = "footer.jsp"/>
 </body>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    var element_layer = document.getElementById('layer');
+    function closeDaumPostcode() {
+        element_layer.style.display = 'none';
+    }
+    function sample2_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = ''; 
+                var extraAddr = ''; 
+                if (data.userSelectedType === 'R') {
+                    addr = data.roadAddress;
+                } else {
+                    addr = data.jibunAddress;
+                }
+                if(data.userSelectedType === 'R'){
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    	extraAddr += data.bname;
+                    }
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+//                     document.getElementById("sample2_extraAddress").value = extraAddr;
+                } else {
+                    extraAddr = '';
+                }
+                document.getElementById('postCode').value = data.zonecode;
+                document.getElementById("address").value = addr  + extraAddr;
+                document.getElementById("detailAddress").focus();
+                element_layer.style.display = 'none';
+            },
+            width : '100%',
+            height : '100%',
+            maxSuggestItems : 5
+        }).embed(element_layer);
+        element_layer.style.display = 'block';
+        initLayerPosition();
+    }
+    function initLayerPosition(){
+        var width = 460;
+        var height = 400; 
+        var borderWidth = 5;
+        element_layer.style.width = width + 'px';
+        element_layer.style.height = height + 'px';
+        element_layer.style.border = borderWidth + 'px solid';
+        element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+        element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+    }
+</script>
 </html>

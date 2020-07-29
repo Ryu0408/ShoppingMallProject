@@ -52,7 +52,9 @@ public class MainController {
 			for(int i = 0 ; i < resource.length ; i ++) {
 			    Path path = Paths.get(resource[i].getURI());
 			    List<String> content = Files.readAllLines(path);
-			    model.addAttribute("agree"+i, content);
+			    String str = resource[i].getFilename();
+			    String result = str.substring(0, str.lastIndexOf("."));
+			    model.addAttribute(result, content);
 			}
 
 		} catch (IOException e) {
@@ -73,6 +75,11 @@ public class MainController {
 	public String checkemail(String email) {
 		boolean alreadyExist = false;
 		return alreadyExist ? "이미 사용중인 EMAIL입니다" : "사용 가능한 EMAIL입니다";
+	}
+	
+	@RequestMapping(value = "/popup/", method = RequestMethod.GET)
+	public String popup() {
+		return "jusoPopup";
 	}
 	
 }
