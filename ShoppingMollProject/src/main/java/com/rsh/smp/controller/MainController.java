@@ -5,11 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -77,9 +73,9 @@ public class MainController {
 		return alreadyExist ? "이미 사용중인 EMAIL입니다" : "사용 가능한 EMAIL입니다";
 	}
 	
-	@RequestMapping(value = "/popup/", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart/", method = RequestMethod.GET)
 	public String popup() {
-		return "jusoPopup";
+		return "cart";
 	}
 	
 }

@@ -5,18 +5,12 @@
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
-
 .circle{
 	width:10px;
 	height:10px;
 	border-radius:50%;
 	background: red;
 	display:inline
-}
-.agreeForm{
-	border: 1px solid #80808024; 
-	background: #fafafa;
-	padding: 20px;
 }
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

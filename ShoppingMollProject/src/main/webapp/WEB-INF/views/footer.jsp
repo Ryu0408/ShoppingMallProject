@@ -35,7 +35,7 @@
          		<a class="dark-grey-text" href="${cpath}/login/" style="text-decoration: none; color:#212529;">로그인</a>
         	</p>
         	<p style = "font-family:Nanum Pen Script;">
-          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">회원가입</a>
+          		<a class="dark-grey-text" href="${cpath}/join/" style="text-decoration: none; color:#212529;">회원가입</a>
         	</p>
         	<p style = "font-family:Nanum Pen Script;">
           		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">관심상품</a>

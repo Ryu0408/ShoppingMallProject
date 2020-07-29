@@ -24,6 +24,11 @@
 		@media screen and (max-width: 575px) {
    			 .overlap{ padding-top: 305px; }
    		}
+   		.agreeForm{
+			border: 1px solid #80808024; 
+			background: #fafafa;
+			padding: 20px;
+		}
 	</style>
 
 	<title>ShoppingMoll</title>
@@ -71,7 +76,7 @@
    				<a class="nav-link" href="${cpath}/join/">Join us</a>
  			</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Cart</a>
+      			<a class="nav-link" href="${cpath}/cart/">Cart</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Mypage</a>
