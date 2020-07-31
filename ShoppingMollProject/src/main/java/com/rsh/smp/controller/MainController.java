@@ -74,8 +74,12 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/cart/", method = RequestMethod.GET)
-	public String popup() {
+	public String cart() {
 		return "cart";
 	}
 	
+	@RequestMapping(value = "/mypage/", method = RequestMethod.GET)
+	public String mypage() {
+		return "mypage";
+	}
 }

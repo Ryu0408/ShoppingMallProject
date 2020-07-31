@@ -46,7 +46,7 @@ function checkAll(){
 </script>
 <div class="container overlap">
 	<form id = "frm">
-		<h6 class="text-uppercase font-weight-bold">장바구니</h6>
+		<h6 class="text-uppercase font-weight-bold" style="margin-top: 30px;">장바구니</h6>
 		<div class = "agreeForm" style = "font-size:13px; padding:13px;">
 			<strong class="font-weight-bold">상품 (2)</strong>
 		</div>

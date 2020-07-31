@@ -79,7 +79,7 @@
       			<a class="nav-link" href="${cpath}/cart/">Cart</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Mypage</a>
+      			<a class="nav-link" href="${cpath}/mypage/">Mypage</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Community</a>

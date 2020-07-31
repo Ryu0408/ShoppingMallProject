@@ -23,7 +23,8 @@
 }
 </style>
 <div class="container overlap" style = "text-align: center;">
-	<h6 class="text-uppercase font-weight-bold" style ="font-size: 30px">LOGIN</h6>
+	<h6 class="text-uppercase font-weight-bold" 
+	style ="font-size: 30px; margin-top: 30px;">LOGIN</h6>
 	<br>
 	<ul class="nav nav-tabs" style = "width:430px;margin-left: auto;margin-right: auto;">
   		<li class="nav-item" style="width: 215px;">

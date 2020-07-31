@@ -5,7 +5,7 @@
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <div class="container overlap">
-	<h6 class="text-uppercase font-weight-bold">${product}</h6>
+	<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${product}</h6>
 	<nav class="navbar navbar-expand-sm navbar-light" style = "box-shadow: 0 2px 5px 0 rgba(0,0,0,0), 0 2px 10px 0 rgba(0,0,0,0);">
 		<p class= "mr-auto" style="font-family:Nanum Pen Script; padding-top: 13px">Total <b class="font-weight-bold">24</b> Items</p>
 		<ul class="navbar-nav">

@@ -159,7 +159,7 @@ function checkMenu(){
 </script>
 <div class="container overlap">
 	<form id = "frm">
-		<h6 class="text-uppercase font-weight-bold">회원 가입</h6>
+		<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">회원 가입</h6>
 		<br>
 		<table class="table">
     		<tbody>
