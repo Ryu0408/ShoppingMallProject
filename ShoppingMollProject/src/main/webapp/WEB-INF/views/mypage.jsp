@@ -8,6 +8,27 @@
 .useratag{
 	color: black;
 }
+.imgStyle{
+	width: 70px;
+	height: 80px;
+}
+.thStyle {
+    background: white;
+    font-size: 13px;
+    color: gray;
+    text-align: center;
+    padding: 0px;
+}
+.tdStyle{
+	background: white; 
+	font-size:13px; 
+	color: black;
+	text-align: center;
+}
+.selectStyle{
+	width : 180px; height: 26px; padding: 0px;
+	color : gray; font-size: 12px; margin: 0 auto;
+}
 </style>
 <div class="container overlap">
 	<form id = "frm">
@@ -149,11 +170,322 @@
 						<b class = "font-weight-bold useratag" style ="font-size: 12px">배송완료</b><br>
 						<b class = "font-weight-bold useratag" style ="font-size: 35px">5</b>
 					</li>
-					<li class="nav-item" style ="width:25%;">
-						취소:
+					<li class="nav-item" style ="width:25%; font-size:12px; text-align : center">
+						취소 : <b class = "font-weight-bold useratag" style = "font-size:16px;">1</b><br>
+						교환 : <b class = "font-weight-bold useratag" style = "font-size:16px;">2</b><br>
+						반품 : <b class = "font-weight-bold useratag" style = "font-size:16px;">1</b><br>
 					</li>
 				</ul>
 	  		</nav>
+	  		<br>
+			<br>
+	  		<b class = "font-weight-bold useratag" style ="font-size: 12px">주문상품정보</b>
+			<br>
+			<br>
+			<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
+	  		<table class="table" style = "2px solid #dee2e6">
+	    		<thead>
+	      			<tr style = "text-align: center">
+	        			<th class = "thStyle">주문번호</th>
+	        			<th class = "thStyle">이미지</th>
+	        			<th class = "thStyle">상품정보</th>
+	        			<th class = "thStyle">수량</th>
+	        			<th class = "thStyle">상품구매금액</th>
+	        			<th class = "thStyle">주문처리상태</th>
+	      			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr style = "text-align: center">
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						0000-0001
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend01.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
+	    					</p>
+	    					<p style = "color:gray;">[옵션: 브라운]</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold text">
+	    						3
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						75,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						배송중
+	    					</p>
+	    				</td>
+	      			</tr>
+	    			<tr style = "text-align: center">
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						0000-0002
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend02.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
+	    					</p>
+	    					<p style = "color:gray;">[옵션: 화이트]</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						2
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						50,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						배송준비중
+	    					</p>
+	    				</td>
+	      			</tr>
+	    			<tr style = "text-align: center">
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						0000-0003
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend03.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
+	    					</p>
+	    					<p style = "color:gray;">[옵션: 화이트]</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						3
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						75,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						입금전
+	    					</p>
+	    				</td>
+	      			</tr>
+	    			<tr style = "text-align: center">
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						0000-0004
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend04.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
+	    					</p>
+	    					<p style = "color:gray;">[옵션: 화이트]</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						5
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						95,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						배송완료
+	    					</p>
+	    				</td>
+	      			</tr>
+	    		</tbody>
+			</table>
+			<hr>
+			<br>
+			<br>
+			<b class = "font-weight-bold useratag" style ="font-size: 12px">내 쿠폰 목록</b>
+			<br>
+			<br>
+			<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
+			<table class="table">
+	    		<thead>
+	      			<tr style = "text-align: center">
+	        			<th class = "thStyle">번호</th>
+	        			<th class = "thStyle">쿠폰명</th>
+	        			<th class = "thStyle">적용상품</th>
+	        			<th class = "thStyle">구매금액</th>
+	        			<th class = "thStyle">혜택</th>
+	        			<th class = "thStyle">사용기간</th>
+	      			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr>
+	    				<td colspan="6">
+	    					<p class = "font-weight-bold tdStyle" style = "color: gray">
+	    						보유하고 계신 쿠폰 내역이 없습니다
+	    					</p>	    				
+	    				</td>
+	    			</tr>
+	    		</tbody>
+			</table>
+			<hr>
+			<br>
+			<br>
+			<b class = "font-weight-bold useratag" style ="font-size: 12px">최근 본 상품</b>
+			<br>
+			<br>
+			<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
+			<table class="table">
+	    		<thead>
+	      			<tr style = "text-align: center">
+	        			<th class = "thStyle">이미지</th>
+	        			<th class = "thStyle">상품명</th>
+	        			<th class = "thStyle">옵션정보</th>
+	        			<th class = "thStyle">판매가</th>
+	        			<th class = "thStyle">주문</th>
+	      			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr style = "text-align: center">
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend01.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+							<select class="form-control selectStyle">
+	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
+	  							<option value = "**">---------------------</option>
+	 							<option>오트밀</option>
+	  							<option>블랙</option>
+							</select>
+							<br>
+							<select class="form-control selectStyle">
+	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
+	  							<option value = "**">---------------------</option>
+	 							<option>L</option>
+	  							<option>XL</option>
+							</select>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						25,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							담기
+   						</button><br>
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							주문
+   						</button><br>
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							삭제
+   						</button>
+	    				</td>
+	      			</tr>
+	      			<tr style = "text-align: center">
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend02.jpg">
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
+	    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
+							<select class="form-control selectStyle">
+	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
+	  							<option value = "**">---------------------</option>
+	 							<option>오트밀</option>
+	  							<option>블랙</option>
+							</select>
+							<br>
+							<select class="form-control selectStyle">
+	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
+	  							<option value = "**">---------------------</option>
+	 							<option>L</option>
+	  							<option>XL</option>
+							</select>
+	    				</td>
+	    				<td class = "tdStyle" style = "vertical-align: middle;">
+	    					<p class = "font-weight-bold">
+	    						25,000원
+	    					</p>
+	    				</td>
+	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							담기
+   						</button><br>
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							주문
+   						</button><br>
+	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
+   							삭제
+   						</button>
+	    				</td>
+	      			</tr>
+	    		</tbody>
+			</table>
+			<hr>
+			<br>
+			<br>
+			<b class = "font-weight-bold useratag" style ="font-size: 12px">내 게시글</b>
+			<br>
+			<br>
+			<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
+			<table class="table">
+	    		<thead>
+	      			<tr style = "text-align: center">
+	        			<th class = "thStyle">번호</th>
+	        			<th class = "thStyle">분류</th>
+	        			<th class = "thStyle">제목</th>
+	        			<th class = "thStyle">작성자</th>
+	        			<th class = "thStyle">작성일</th>
+	        			<th class = "thStyle">조회</th>
+	      			</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr>
+	    				<td colspan="6">
+	    					<p class = "font-weight-bold tdStyle" style = "color: gray">
+	    						게시물이 없습니다
+	    					</p>	    				
+	    				</td>
+	    			</tr>
+	    		</tbody>
+			</table>
+			<hr>
 		</div>
 	</form>
 </div>

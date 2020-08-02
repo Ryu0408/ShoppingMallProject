@@ -82,7 +82,7 @@
       			<a class="nav-link" href="${cpath}/mypage/">Mypage</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Community</a>
+      			<a class="nav-link" href="#">Notice</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="#">Q&A</a>
