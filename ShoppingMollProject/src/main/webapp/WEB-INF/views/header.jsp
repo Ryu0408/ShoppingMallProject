@@ -82,13 +82,13 @@
       			<a class="nav-link" href="${cpath}/mypage/">Mypage</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Notice</a>
+      			<a class="nav-link" href="${cpath}/notice/">Notice</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">Q&A</a>
+      			<a class="nav-link" href="${cpath}/q&a/">Q&A</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#">REVIEW</a>
+      			<a class="nav-link" href="${cpath}/review/">REVIEW</a>
     		</li>
   		</ul>
 	</nav>
