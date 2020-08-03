@@ -68,8 +68,6 @@
 					</div>
 					<a href = "#" class = "font-weight-bold useratag">주문내역</a>
 					<a href = "#" class = "font-weight-bold useratag"> │ 장바구니</a>
-					<a href = "#" class = "font-weight-bold useratag"> │ 관심상품</a>
-					<a href = "#" class = "font-weight-bold useratag"> │ 최근 본 상품</a>
 					<a href = "#" class = "font-weight-bold useratag"> │ 내 게시글</a>
 					<br>
 					<br>
@@ -347,114 +345,6 @@
 	    					</p>	    				
 	    				</td>
 	    			</tr>
-	    		</tbody>
-			</table>
-			<hr>
-			<br>
-			<br>
-			<b class = "font-weight-bold useratag" style ="font-size: 12px">최근 본 상품</b>
-			<br>
-			<br>
-			<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
-			<table class="table">
-	    		<thead>
-	      			<tr style = "text-align: center">
-	        			<th class = "thStyle">이미지</th>
-	        			<th class = "thStyle">상품명</th>
-	        			<th class = "thStyle">옵션정보</th>
-	        			<th class = "thStyle">판매가</th>
-	        			<th class = "thStyle">주문</th>
-	      			</tr>
-	    		</thead>
-	    		<tbody>
-	    			<tr style = "text-align: center">
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend01.jpg">
-	    				</td>
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
-	    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
-	    					</p>
-	    				</td>
-	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
-							<select class="form-control selectStyle">
-	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
-	  							<option value = "**">---------------------</option>
-	 							<option>오트밀</option>
-	  							<option>블랙</option>
-							</select>
-							<br>
-							<select class="form-control selectStyle">
-	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
-	  							<option value = "**">---------------------</option>
-	 							<option>L</option>
-	  							<option>XL</option>
-							</select>
-	    				</td>
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<p class = "font-weight-bold">
-	    						25,000원
-	    					</p>
-	    				</td>
-	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							담기
-   						</button><br>
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문
-   						</button><br>
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							삭제
-   						</button>
-	    				</td>
-	      			</tr>
-	      			<tr style = "text-align: center">
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend02.jpg">
-	    				</td>
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<p class="font-weight-bold" style = "margin-bottom: 3px">
-	    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
-	    					</p>
-	    				</td>
-	    				<td class = "tdStyle sell" style = "vertical-align: middle;">
-							<select class="form-control selectStyle">
-	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
-	  							<option value = "**">---------------------</option>
-	 							<option>오트밀</option>
-	  							<option>블랙</option>
-							</select>
-							<br>
-							<select class="form-control selectStyle">
-	 							<option value = "*"> [필수] 옵션을 선택해 주세요</option>
-	  							<option value = "**">---------------------</option>
-	 							<option>L</option>
-	  							<option>XL</option>
-							</select>
-	    				</td>
-	    				<td class = "tdStyle" style = "vertical-align: middle;">
-	    					<p class = "font-weight-bold">
-	    						25,000원
-	    					</p>
-	    				</td>
-	    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							담기
-   						</button><br>
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문
-   						</button><br>
-	    				<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							삭제
-   						</button>
-	    				</td>
-	      			</tr>
 	    		</tbody>
 			</table>
 			<hr>

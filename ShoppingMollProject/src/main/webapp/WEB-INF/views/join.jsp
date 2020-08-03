@@ -112,6 +112,7 @@ function checkEmail(){
 		}
 	})
 }
+
 function checkAll(){
 	const checkAll = $("#allCheck").is(":checked");
 	if(checkAll == true){

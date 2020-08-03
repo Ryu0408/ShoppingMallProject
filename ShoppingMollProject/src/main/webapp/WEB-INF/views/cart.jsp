@@ -121,10 +121,6 @@ function checkAll(){
    						</button><br>
    						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							관심상품등록
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
    							삭제
    						</button>
     				</td>
@@ -178,10 +174,6 @@ function checkAll(){
     					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
 						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
    							주문하기
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							관심상품등록
    						</button><br>
    						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
@@ -241,10 +233,6 @@ function checkAll(){
    						</button><br>
    						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							관심상품등록
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
    							삭제
    						</button>
     				</td>
@@ -298,10 +286,6 @@ function checkAll(){
     					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
 						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
    							주문하기
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							관심상품등록
    						</button><br>
    						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
