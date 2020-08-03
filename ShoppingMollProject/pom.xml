@@ -74,6 +74,12 @@
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		
 		<!-- XML 한글 파싱 오류 -->
 		<dependency>
 			<groupId>xerces</groupId>

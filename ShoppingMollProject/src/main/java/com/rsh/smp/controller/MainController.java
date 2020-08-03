@@ -17,12 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.rsh.smp.service.MainService;
+
 @Controller
 public class MainController {
 
 	@Autowired ResourceLoader resourceLoader;
+	@Autowired MainService mainservice;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
+		System.out.println(mainservice.dbtest());
 		return "main";
 	}
 	
