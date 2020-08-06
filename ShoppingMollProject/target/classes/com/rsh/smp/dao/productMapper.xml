@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.rsh.smp.dao.IProductDAO">
+	<select id = "selectProduct" resultType = "com.rsh.smp.vo.ProductVO"
+	parameterType="String">
+		select * from 
+		<if test="!product.equals('new')">
+			product where kind = #{product}	order by register desc
+		</if>
+		<if test="product.equals('new')">
+			(select * from product order by register desc) 
+			where rownum <![CDATA[ <= ]]> 30
+		</if>
+	</select>	
+</mapper>

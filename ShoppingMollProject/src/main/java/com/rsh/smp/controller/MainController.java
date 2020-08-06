@@ -27,16 +27,9 @@ public class MainController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
-		System.out.println(mainservice.dbtest());
 		return "main";
 	}
-	
-	@RequestMapping(value = "/productpage/{product}/", method = RequestMethod.GET)
-	public String product(@PathVariable String product, Model model) {
-		model.addAttribute("product", product);
-		return "product";
-	}
-	
+		
 	@RequestMapping(value = "/login/", method = RequestMethod.GET)
 	public String login() {
 		return "login";
