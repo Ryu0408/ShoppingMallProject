@@ -21,6 +21,9 @@ public class ProductController {
 		model.addAttribute("product", product);
 		model.addAttribute("listProductVO", productService.selectProduct(product));
 		model.addAttribute("productSize", productService.selectProduct(product).size());
+		
+		//페이징처리
+		model.addAttribute("pageSize", (int)Math.ceil(productService.selectProduct(product).size()/28.0));
 		return "product";
 	}
 	

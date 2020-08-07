@@ -25,10 +25,12 @@
   		</ul>
   	</nav>
   	<hr style = "margin-top: 0px">
+  	<c:set var="loog_flag" value="false"/>
   	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
-  		<c:if test="${st.index % 4 == 0 }">
+  		<c:if test ="${not loog_flag }">
+  			<c:if test="${st.index % 4 == 0 }">
   	<div class = "row">
-  		</c:if>
+  			</c:if>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
 				<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" class = "img-fluid" style = "width: 100%; height:350px">
@@ -39,9 +41,13 @@
 				<p style="font-family:Single Day;">${productVO.price }</p>
 			</div>
 		</div>
-		<c:if test="${st.index % 4 == 3 }">
-  	</div>
-  	<br>
+			<c:if test="${st.index % 4 == 3 }">
+  		</div>
+  		<br>
+  			</c:if>
+  			<c:if test="${st.index == 27 }">
+  				<c:set var="loog_flag" value="true"/>
+  			</c:if>
   		</c:if>
   	</c:forEach>
   	</div>
@@ -54,11 +60,14 @@
         			<span class="sr-only">Previous</span>
       			</a>
     		</li>
-    		<li class="page-item active"><a class="page-link">1</a></li>
-    		<li class="page-item"><a class="page-link">2</a></li>
-    		<li class="page-item"><a class="page-link">3</a></li>
-    		<li class="page-item"><a class="page-link">4</a></li>
-    		<li class="page-item"><a class="page-link">5</a></li>
+    		<c:forEach begin="1" end="${pageSize }" var = "page">
+    			<c:if test="${page eq '1'}">
+    			    <li class="page-item active ${page }page"><a class="page-link" onclick="paging(${page})">${page }</a></li>
+    			</c:if>
+    			<c:if test="${page ne '1' }">
+    			    <li class="page-item ${page }page"><a class="page-link" onclick="paging(${page})">${page }</a></li>
+    			</c:if>
+    		</c:forEach>
     		<li class="page-item">
       			<a class="page-link" aria-label="Next">
         			<span aria-hidden="true">&raquo;</span>
@@ -68,6 +77,18 @@
   		</ul>
 	</nav>
 </div>
+<<script type="text/javascript">
+function paging(page){
+	for(var i = 1 ; i <= ${pageSize} ; i++){
+		if(i == page){
+			$('.'+page+'page').addClass("active");
+			break;
+		}
+		console.log($('.'+page+'page'))
+		$('.'+page+'page').removeClass("active");
+	}
+}
+</script>
 <!-- Footer Include -->
 <jsp:include page = "footer.jsp"/>
 </body>
