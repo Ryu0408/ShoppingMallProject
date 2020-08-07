@@ -1,7 +1,6 @@
 package com.rsh.smp.controller;
 
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rsh.smp.service.ProductService;
-import com.rsh.smp.vo.ProductVO;
 
 @Controller
 public class ProductController {
@@ -25,4 +23,15 @@ public class ProductController {
 		model.addAttribute("productSize", productService.selectProduct(product).size());
 		return "product";
 	}
+	
+	@RequestMapping(value = {"/productpage/{product}/{sort}"}, method = RequestMethod.GET)
+	public String productSort(@PathVariable("product") String product, 
+			@PathVariable("sort") String sort, Model model) {
+		model.addAttribute("product", product);
+		model.addAttribute("listProductVO", productService.selectProductSort(product, sort));
+		model.addAttribute("productSize", productService.selectProduct(product).size());
+		return "product";
+	}
+	
+	
 }

@@ -3,14 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cpath">${pageContext.request.contextPath }</c:set>
 <!-- Header Include -->
-<script>
-	function productSort(data){
-		console.log(data)
-		if(data == 'productnew'){
-			console.log("하하")
-		}
-	}
-</script>
 <jsp:include page="header.jsp"/>
 <div class="container overlap">
 	<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${product}</h6>
@@ -19,16 +11,16 @@
 		Total <b class="font-weight-bold">${productSize}</b> Items</p>
 		<ul class="navbar-nav">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-    			<a class="nav-link" href="#" onClick="productSort('productNew')">신상품</a>
+    			<a class="nav-link" href="${cpath}/productpage/${product}/newSort/">신상품</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-   				<a class="nav-link" href="#" onClick="productSort('lowPrice')">낮은가격</a>
+   				<a class="nav-link" href="${cpath}/productpage/${product}/lowSort/">낮은가격</a>
  			</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#" onClick="productSort('highPrice')">높은가격</a>
+      			<a class="nav-link" href="${cpath}/productpage/${product}/highSort/">높은가격</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="#" onClick="productSort('productName')">상품명</a>
+      			<a class="nav-link" href="${cpath}/productpage/${product}/productSort/">상품명</a>
     		</li>
   		</ul>
   	</nav>

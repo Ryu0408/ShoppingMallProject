@@ -9,4 +9,6 @@ import com.rsh.smp.vo.ProductVO;
 public interface IProductDAO {
 
 	List<ProductVO> selectProduct(@Param("product") String product);
+
+	List<ProductVO> selectProductSort(@Param("product")String product, @Param("sort")String sort);
 }

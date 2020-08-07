@@ -18,4 +18,9 @@ public class ProductService {
 		return listProductVO;
 	}
 
+	public List<ProductVO> selectProductSort(String product, String sort) {
+		List<ProductVO> listProductVO = iProductDAO.selectProductSort(product, sort);
+		return listProductVO;
+	}
+
 }

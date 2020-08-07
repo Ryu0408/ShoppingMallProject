@@ -14,4 +14,40 @@
 			where rownum <![CDATA[ <= ]]> 30
 		</if>
 	</select>	
+	
+	<select id = "selectProductSort" resultType = "com.rsh.smp.vo.ProductVO"
+	parameterType="String">
+		select * from 
+		<if test="!product.equals('new')">
+			product where kind = #{product}
+			<if test="sort.equals('newSort')">
+					order by register desc
+			</if>
+			<if test="sort.equals('lowSort')">
+					order by to_number(replace(replace(price,',',''),'원','0000'))
+			</if>
+			<if test="sort.equals('highSort')">
+					order by to_number(replace(replace(price,',',''),'원','0000')) desc
+			</if>
+			<if test="sort.equals('productSort')">
+					order by title
+			</if>
+		</if>
+		<if test="product.equals('new')">
+			(select * from product order by register desc) 
+			where rownum <![CDATA[ <= ]]> 30
+			<if test="sort.equals('newSort')">
+					order by register desc
+			</if>
+			<if test="sort.equals('lowSort')">
+					order by to_number(replace(replace(price,',',''),'원','0000'))
+			</if>
+			<if test="sort.equals('highSort')">
+					order by to_number(replace(replace(price,',',''),'원','0000')) desc
+			</if>
+			<if test="sort.equals('productSort')">
+					order by title
+			</if>
+		</if>
+	</select>	
 </mapper>
