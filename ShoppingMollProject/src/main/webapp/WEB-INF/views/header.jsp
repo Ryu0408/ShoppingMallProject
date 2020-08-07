@@ -45,25 +45,25 @@
 		<!-- Links -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item" style="font-family:Ranchers;">
-    			<a class="nav-link" href="${cpath}/productpage/new/">NEW</a>
+    			<a class="nav-link" href="${cpath}/productpage/new/newSort/1/">NEW</a>
     		</li>
  			<li class="nav-item" style="font-family:Ranchers;">
-   				<a class="nav-link" href="${cpath}/productpage/outer/">OUTER</a>
+   				<a class="nav-link" href="${cpath}/productpage/outer/newSort/1/">OUTER</a>
  			</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${cpath}/productpage/top/">TOP</a>
+      			<a class="nav-link" href="${cpath}/productpage/top/newSort/1/">TOP</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${cpath}/productpage/skirt/">SKIRT</a>
+      			<a class="nav-link" href="${cpath}/productpage/skirt/newSort/1/">SKIRT</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${cpath}/productpage/dress/">DRESS</a>
+      			<a class="nav-link" href="${cpath}/productpage/dress/newSort/1/">DRESS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${cpath}/productpage/pants/">PANTS</a>
+      			<a class="nav-link" href="${cpath}/productpage/pants/newSort/1/">PANTS</a>
     		</li>
     		<li class="nav-item" style="font-family:Ranchers;">
-      			<a class="nav-link" href="${cpath}/productpage/accessory/">ACCESSORY</a>
+      			<a class="nav-link" href="${cpath}/productpage/accessory/newSort/1/">ACCESSORY</a>
     		</li>
   		</ul>
 

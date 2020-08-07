@@ -8,7 +8,10 @@ import com.rsh.smp.vo.ProductVO;
 
 public interface IProductDAO {
 
-	List<ProductVO> selectProduct(@Param("product") String product);
+	int selectProduct(@Param("product") String product);
 
-	List<ProductVO> selectProductSort(@Param("product")String product, @Param("sort")String sort);
+	List<ProductVO> selectProductPage(@Param("product") String product, 
+			@Param("sort") String sort,
+			@Param("first") int first,
+			@Param("last") int last);
 }

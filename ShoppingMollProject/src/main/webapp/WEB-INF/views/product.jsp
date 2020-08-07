@@ -11,26 +11,26 @@
 		Total <b class="font-weight-bold">${productSize}</b> Items</p>
 		<ul class="navbar-nav">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-    			<a class="nav-link" href="${cpath}/productpage/${product}/newSort/">신상품</a>
+    			<a class="nav-link" href="${cpath}/productpage/${product}/newSort/1/">신상품</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-   				<a class="nav-link" href="${cpath}/productpage/${product}/lowSort/">낮은가격</a>
+   				<a class="nav-link" href="${cpath}/productpage/${product}/lowSort/1/">낮은가격</a>
  			</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/productpage/${product}/highSort/">높은가격</a>
+      			<a class="nav-link" href="${cpath}/productpage/${product}/highSort/1/">높은가격</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/productpage/${product}/productSort/">상품명</a>
+      			<a class="nav-link" href="${cpath}/productpage/${product}/productSort/1/">상품명</a>
     		</li>
   		</ul>
   	</nav>
   	<hr style = "margin-top: 0px">
+  	
   	<c:set var="loog_flag" value="false"/>
   	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
-  		<c:if test ="${not loog_flag }">
-  			<c:if test="${st.index % 4 == 0 }">
+  		<c:if test="${st.index % 4 == 0 }">
   	<div class = "row">
-  			</c:if>
+  		</c:if>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
 				<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" class = "img-fluid" style = "width: 100%; height:350px">
@@ -41,13 +41,9 @@
 				<p style="font-family:Single Day;">${productVO.price }</p>
 			</div>
 		</div>
-			<c:if test="${st.index % 4 == 3 }">
-  		</div>
-  		<br>
-  			</c:if>
-  			<c:if test="${st.index == 27 }">
-  				<c:set var="loog_flag" value="true"/>
-  			</c:if>
+		<c:if test="${st.index % 4 == 3 }">
+  	</div>
+  	<br>
   		</c:if>
   	</c:forEach>
   	</div>
@@ -55,21 +51,21 @@
 	<nav>
   		<ul class="pagination pg-purple justify-content-center">
     		<li class="page-item">
-      			<a class="page-link" aria-label="Previous">
+      			<a class="page-link" aria-label="Previous" onClick="previousPage(${page}, ${pageSize })">
         			<span aria-hidden="true">&laquo;</span>
         			<span class="sr-only">Previous</span>
       			</a>
     		</li>
     		<c:forEach begin="1" end="${pageSize }" var = "page">
     			<c:if test="${page eq '1'}">
-    			    <li class="page-item active ${page }page"><a class="page-link" onclick="paging(${page})">${page }</a></li>
+    			    <li class="page-item active ${page }page"><a class="page-link" href="${cpath}/productpage/${product}/${sort}/${page}/">${page }</a></li>
     			</c:if>
     			<c:if test="${page ne '1' }">
-    			    <li class="page-item ${page }page"><a class="page-link" onclick="paging(${page})">${page }</a></li>
+    			    <li class="page-item ${page }page"><a class="page-link" href="${cpath}/productpage/${product}/${sort}/${page}/">${page }</a></li>
     			</c:if>
     		</c:forEach>
     		<li class="page-item">
-      			<a class="page-link" aria-label="Next">
+      			<a class="page-link" aria-label="Next" onClick="nextPage(${page}, ${pageSize })">
         			<span aria-hidden="true">&raquo;</span>
         			<span class="sr-only">Next</span>
       			</a>
@@ -77,19 +73,27 @@
   		</ul>
 	</nav>
 </div>
-<<script type="text/javascript">
-function paging(page){
-	for(var i = 1 ; i <= ${pageSize} ; i++){
-		if(i == page){
-			$('.'+page+'page').addClass("active");
-			break;
-		}
-		console.log($('.'+page+'page'))
-		$('.'+page+'page').removeClass("active");
+<!-- Footer Include -->
+<jsp:include page = "footer.jsp"/>
+<script type="text/javascript">
+for(var i = 1 ; i <= ${pageSize} ; i++){
+	page = "${page}" * 1
+	if(i == page){ ('.'+i+'page').addClass("active"); }
+	if(i != page){ $('.'+i+'page').removeClass("active");}
+}
+
+function nextPage(page, pageSize){
+	if(page < pageSize){
+		page = page +1;
+		window.location= "${cpath}/productpage/${product}/${sort}/" + page + "/";
+	}
+}
+function previousPage(page, pageSize){
+	if(page > 1){
+		page = page - 1;
+		window.location= "${cpath}/productpage/${product}/${sort}/" + page + "/";
 	}
 }
 </script>
-<!-- Footer Include -->
-<jsp:include page = "footer.jsp"/>
 </body>
 </html>

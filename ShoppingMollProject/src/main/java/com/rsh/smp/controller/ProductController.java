@@ -16,25 +16,18 @@ public class ProductController {
 
 	@Autowired ProductService productService;
 	
-	@RequestMapping(value = "/productpage/{product}/", method = RequestMethod.GET)
-	public String product(@PathVariable String product, Model model) {
+	private final double perPage = 16;
+
+	@RequestMapping(value = "/productpage/{product}/{sort}/{page}/", method = RequestMethod.GET)
+	public String product(@PathVariable("product") String product, 	@PathVariable("sort") String sort,
+			@PathVariable("page") String page, Model model) {
+		model.addAttribute("productSize", productService.selectProductSize(product));
+		model.addAttribute("pageSize", Math.ceil(productService.selectProductSize(product)/perPage));
 		model.addAttribute("product", product);
-		model.addAttribute("listProductVO", productService.selectProduct(product));
-		model.addAttribute("productSize", productService.selectProduct(product).size());
-		
-		//페이징처리
-		model.addAttribute("pageSize", (int)Math.ceil(productService.selectProduct(product).size()/28.0));
-		return "product";
+		model.addAttribute("sort", sort);
+		model.addAttribute("page", page);
+		model.addAttribute("listProductVO", productService.selectProductPage(product, sort, page));
+		return "product";  
 	}
-	
-	@RequestMapping(value = {"/productpage/{product}/{sort}"}, method = RequestMethod.GET)
-	public String productSort(@PathVariable("product") String product, 
-			@PathVariable("sort") String sort, Model model) {
-		model.addAttribute("product", product);
-		model.addAttribute("listProductVO", productService.selectProductSort(product, sort));
-		model.addAttribute("productSize", productService.selectProduct(product).size());
-		return "product";
-	}
-	
-	
+
 }

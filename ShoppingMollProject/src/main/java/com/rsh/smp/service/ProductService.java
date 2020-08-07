@@ -13,13 +13,17 @@ public class ProductService {
 
 	@Autowired IProductDAO iProductDAO;
 	
-	public List<ProductVO> selectProduct(String product){
-		List<ProductVO> listProductVO = iProductDAO.selectProduct(product);
-		return listProductVO;
+	private final int perPage = 16;
+	
+	public int selectProductSize(String product){
+		int productSize = iProductDAO.selectProduct(product);
+		return productSize;
 	}
 
-	public List<ProductVO> selectProductSort(String product, String sort) {
-		List<ProductVO> listProductVO = iProductDAO.selectProductSort(product, sort);
+	public Object selectProductPage(String product, String sort, String page) {
+		int first = (Integer.parseInt(page) - 1) * perPage + 1;
+		int last = first + perPage - 1;
+		List<ProductVO> listProductVO = iProductDAO.selectProductPage(product, sort, first, last);
 		return listProductVO;
 	}
 
