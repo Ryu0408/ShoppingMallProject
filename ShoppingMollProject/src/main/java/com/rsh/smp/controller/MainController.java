@@ -21,7 +21,6 @@ import com.rsh.smp.service.MainService;
 @Controller
 public class MainController {
 
-	@Autowired ResourceLoader resourceLoader;
 	@Autowired MainService mainservice;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -33,43 +32,7 @@ public class MainController {
 	public String login() {
 		return "login";
 	}
-	
-	@RequestMapping(value = "/join/", method = RequestMethod.GET)
-	public String join(Model model) {
-		Resource resource[] = {
-				resourceLoader.getResource("classpath:agreeFiles/agreeService.txt"),
-				resourceLoader.getResource("classpath:agreeFiles/agreePrivacy.txt"),
-				resourceLoader.getResource("classpath:agreeFiles/agreeSms.txt"),
-		};
-		try {
-			for(int i = 0 ; i < resource.length ; i ++) {
-			    Path path = Paths.get(resource[i].getURI());
-			    List<String> content = Files.readAllLines(path);
-			    String str = resource[i].getFilename();
-			    String result = str.substring(0, str.lastIndexOf("."));
-			    model.addAttribute(result, content);
-			}
-
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-		return "join";
-	}
-	
-	@RequestMapping(value = "/join/checkid/", produces="application/text;charset=utf8")
-	@ResponseBody
-	public String checkid(String id) {
-		boolean alreadyExist = false;
-		return alreadyExist ? "이미 사용중인 계정입니다" : "사용 가능한 계정입니다";
-	}
-	
-	@RequestMapping(value = "/join/checkemail/", produces="application/text;charset=utf8")
-	@ResponseBody
-	public String checkemail(String email) {
-		boolean alreadyExist = false;
-		return alreadyExist ? "이미 사용중인 EMAIL입니다" : "사용 가능한 EMAIL입니다";
-	}
-	
+		
 	@RequestMapping(value = "/cart/", method = RequestMethod.GET)
 	public String cart() {
 		return "cart";
