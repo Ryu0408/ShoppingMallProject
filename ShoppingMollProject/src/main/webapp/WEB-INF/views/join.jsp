@@ -228,7 +228,7 @@ function checkMenu(){
         			<td style = "width:160px; font-size: 13px">주소<b class="text-danger">(필수)</b></td>
         			<td>    
         				<div style = "margin-bottom: 10px;">
-        					<input type="text" class="form-control form-control-sm"  id = "postCode" name = "postCode""
+        					<input type="text" class="form-control form-control-sm"  id = "postCode" name = "postCode"
         					style = "width:100px; float: left;">
 							<button type="button" class="btn btn-secondary" onClick="sample2_execDaumPostcode()"
 							style="width:64px; margin:0px; margin-left:10px; height:30px; font-size: 12px; 
@@ -296,11 +296,11 @@ function checkMenu(){
   			</textarea>
 			<div class="form-check" style = "padding: 0px;">
 				<strong style = "font-size:13px;">SMS 수신을 동의하십니까?</strong>
-   				<input type="checkbox" class="form-check-input" id="agreeSmsCheck" style = "margin-left: 0px; margin-top:7px;">
-    			<label class="form-check-label" for="agreeagreeSmsCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
+   				<input type="checkbox" class="form-check-input" id="agreeSmsCheck" name = "agreeSmsCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<label class="form-check-label" for="agreeSmsCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
     			<br>
     			<strong style = "font-size:13px;">이메일 수신을 동의하십니까?</strong>
-    			<input type="checkbox" class="form-check-input" id="agreeEmailCheck" style = "margin-left: 0px; margin-top:7px;">
+    			<input type="checkbox" class="form-check-input" id="agreeEmailCheck" name = "agreeEmailCheck" style = "margin-left: 0px; margin-top:7px;">
     			<label class="form-check-label" for="agreeSmsCheck" style = "font-size:13px; margin-left: 18px">동의함</label>
 			</div>
 		</div>

@@ -55,10 +55,11 @@ public class JoinController {
 	@RequestMapping(value = "/join/insert", method = RequestMethod.POST)
 	public String joinInsert(UsersVO usersVO, Model model) {
 		String inputPass = usersVO.getPassword();
-		System.out.println("입력된 비밀번호 : " + inputPass);
 		String pwd = pwdEncoder.encode(inputPass);
-		System.out.println("암호화된 비밀번호 : " + pwd);
 		usersVO.setPassword(pwd);
+		if(usersVO.getAgreeEmailCheck() == null) {usersVO.setAgreeEmailCheck("off");}
+		if(usersVO.getAgreeSmsCheck() == null) {usersVO.setAgreeSmsCheck("off");}
+		joinService.insertUsers(usersVO);
 		return "joinSuccess";
 	}
 	

@@ -7,4 +7,15 @@
 	<select id = "selectCheckJoin" resultType="String" parameterType="String">
 		select ${columnName} from users where ${columnName} = #{info}
 	</select>
+	
+	<insert id="insertUsers" parameterType="com.rsh.smp.vo.UsersVO">
+		insert into users
+		(id, name, password, phone1, phone2, phone3, email, postcode, address, 
+		detailaddress, agreemailcheck, agreesmscheck)
+		values
+		(#{id}, #{name}, #{password}, #{phone1}, #{phone2}, #{phone3}, 
+		#{email}, #{postCode}, #{address}, #{detailAddress}, #{agreeEmailCheck}, 
+		#{agreeSmsCheck})
+	</insert>
+	
 </mapper>

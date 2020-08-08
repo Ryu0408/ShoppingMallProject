@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rsh.smp.dao.IJoinDAO;
+import com.rsh.smp.vo.UsersVO;
 
 @Service
 public class JoinService {
@@ -15,5 +16,9 @@ public class JoinService {
 		boolean alreadyExist;
 		if(checkInfo == null) { alreadyExist = false;} else {alreadyExist = true;}
 		return alreadyExist;
+	}
+
+	public void insertUsers(UsersVO usersVO) {
+		iJoinDAO.insertUsers(usersVO);
 	}
 }
