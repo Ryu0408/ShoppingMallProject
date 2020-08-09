@@ -36,27 +36,27 @@
 	</ul>
 	<div class="tab-content">
   		<div class="tab-pane container active" id="member">
-  			<form action="/action_page.php">
+  			<form action="${cpath }/login/users/" method="POST">
     			<div class="form-group" style = "width:430px;margin-left: auto;margin-right: auto;">
       				<input type="text" class="form-control" placeholder="아이디" name="id">
-      				<input type="text" class="form-control" placeholder="바밀번호" name="password">
+      				<input type="password" class="form-control" placeholder="바밀번호" name="password">
     			</div>
    				<button type="submit" class="btn btn-secondary" style="width:320px; font-size: 15px; background-color: #0a090aad !important;">
    					<b class="font-weight-bold">로그인</b>
    				</button>
   			</form>
-  			<a href="#">
+  			<a href="${cpath }/join/">
    				<button class="btn btn-secondary" style="width:320px; font-size: 15px; background-color: #0a090aad !important;">
   					<b class="font-weight-bold">회원가입</b>
   				</button>
   			</a>
 			<br>  				
-  			<a href="#">
+  			<a href="${cpath }/login/idSearch/">
    				<button class="btn btn-secondary" style="width:150px; font-size: 12px; background-color: #c3b0c3ad !important">
   					<b class="font-weight-bold">아이디찾기</b>
   				</button>
   			</a>
-  			<a href="#">
+  			<a href="${cpath }/login/passwordSearch/">
    				<button class="btn btn-secondary" style="width:150px; font-size: 12px; background-color: #c3b0c3ad !important">
   					<b class="font-weight-bold">비밀번호찾기</b>
   				</button>
@@ -68,14 +68,14 @@
   				비회원의 경우, 주문시의 주문번호로 주문조회가 가능합니다.
   			</p>
     			<div class="form-group" style = "width:430px;margin-left: auto;margin-right: auto;">
-      				<input type="text" class="form-control" placeholder="주문자명" name="orderName">
+      				<input type="text" class="form-control" placeholder="주문자명" name="nonUserName">
       				<input type="text" class="form-control" placeholder="주문번호" name="orderNumber">
-      				<input type="text" class="form-control" placeholder="비회원주문 바밀번호" name="nonMemberOrderPassword">
+      				<input type="password" class="form-control" placeholder="비회원주문 바밀번호" name="nonUserPassword">
     			</div>
    				<button type="submit" class="btn btn-secondary" style="width:320px; font-size: 15px; background-color: #0a090aad !important;">
    					<b class="font-weight-bold">주문조회</b>
    				</button>
-  			</form>
+   			</form>
   		</div>
 	</div>
 	<hr>

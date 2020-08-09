@@ -69,9 +69,16 @@
 
 		<!-- Links -->
 		<ul class="navbar-nav">
+			<c:if test="${sessionScope.sessionID == null }">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
     			<a class="nav-link" href="${cpath}/login/">Login</a>
     		</li>
+    		</c:if>
+    		<c:if test="${sessionScope.sessionID != null }">
+			<li class="nav-item" style="font-family:Nanum Pen Script;">
+    			<a class="nav-link" href="${cpath}/logout/">Logout</a>
+    		</li>
+    		</c:if>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
    				<a class="nav-link" href="${cpath}/join/">Join us</a>
  			</li>

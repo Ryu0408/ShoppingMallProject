@@ -10,4 +10,6 @@ public interface IJoinDAO {
 
 	void insertUsers(UsersVO usersVO);
 
+	String selectUsersPassword(@Param("id") String id);
+
 }

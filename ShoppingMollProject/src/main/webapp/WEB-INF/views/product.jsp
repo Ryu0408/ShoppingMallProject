@@ -78,7 +78,7 @@
 <script type="text/javascript">
 for(var i = 1 ; i <= ${pageSize} ; i++){
 	page = "${page}" * 1
-	if(i == page){ ('.'+i+'page').addClass("active"); }
+	if(i == page){ $('.'+i+'page').addClass("active"); }
 	if(i != page){ $('.'+i+'page').removeClass("active");}
 }
 

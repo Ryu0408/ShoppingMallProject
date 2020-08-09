@@ -60,7 +60,9 @@ public class JoinController {
 		if(usersVO.getAgreeEmailCheck() == null) {usersVO.setAgreeEmailCheck("off");}
 		if(usersVO.getAgreeSmsCheck() == null) {usersVO.setAgreeSmsCheck("off");}
 		joinService.insertUsers(usersVO);
-		return "joinSuccess";
+		model.addAttribute("alertContent","회원가입을 축하드립니다^^");
+		model.addAttribute("path","");
+		return "alert";
 	}
 	
 	@RequestMapping(value = "/join/checkid/", produces="application/text;charset=utf8")

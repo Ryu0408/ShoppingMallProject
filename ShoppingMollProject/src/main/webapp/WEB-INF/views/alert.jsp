@@ -9,7 +9,7 @@
 <title>ShoppingMoll</title>
 </head>
 <script>
-	alert('회원가입을 축하드립니다.');
-	window.location = "${cpath}";
+	alert("${alertContent}");
+	window.location = ${pageContext.request.contextPath }/ + "${path}";
 </script>
 </html>

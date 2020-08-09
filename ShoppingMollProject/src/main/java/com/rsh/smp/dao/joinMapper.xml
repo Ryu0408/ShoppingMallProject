@@ -18,4 +18,8 @@
 		#{agreeSmsCheck})
 	</insert>
 	
+	<select id = "selectUsersPassword" parameterType="String" resultType="String">
+		select password from users where id = #{id}
+	</select>
+	
 </mapper>

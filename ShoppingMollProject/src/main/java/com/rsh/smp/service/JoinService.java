@@ -17,8 +17,13 @@ public class JoinService {
 		if(checkInfo == null) { alreadyExist = false;} else {alreadyExist = true;}
 		return alreadyExist;
 	}
-
+	
 	public void insertUsers(UsersVO usersVO) {
 		iJoinDAO.insertUsers(usersVO);
+	}
+	
+	public String selectUsersPassword(String id) {
+		String password = iJoinDAO.selectUsersPassword(id);
+		return password;
 	}
 }
