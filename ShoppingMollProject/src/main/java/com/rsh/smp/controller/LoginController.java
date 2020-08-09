@@ -106,6 +106,7 @@ public class LoginController {
 				usersVO = loginService.selectGetUsers("email",usersVO.getEmail());
 				StringBuffer tempPassword = tempPassword();
 				usersVO.setPassword(tempPassword.toString());
+				loginService.updateUsers("password", usersVO.getPassword());
 				model.addAttribute("usersVO", usersVO);
 				return "mailService";
 			}else {
@@ -127,8 +128,8 @@ public class LoginController {
 			}
 		}
 		return "alert";
+
 	}
-	
 	public StringBuffer tempPassword() {
 		Random rnd =new Random();
 		StringBuffer buf =new StringBuffer();

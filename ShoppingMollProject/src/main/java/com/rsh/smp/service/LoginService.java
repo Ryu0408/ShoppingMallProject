@@ -46,4 +46,9 @@ public class LoginService {
 		return alreadyExist;
 	}
 
+	public void updateUsers(String colums1, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
