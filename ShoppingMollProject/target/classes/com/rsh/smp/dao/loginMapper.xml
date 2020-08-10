@@ -25,4 +25,13 @@
 		select ${colums3} from users where  ${colums1} = #{id} and ${colums2} = #{name} and ${colums3} = #{email}
 	</select>
 	
+	<update id="updateUsers" parameterType="String">
+		update users set ${colums2} = #{password} where ${colums1} = #{email}
+	</update>
+	
+	<select id = "selectPhonePasswordSearch" resultType="String" parameterType="String">
+		select ${colums3} from users where  ${colums1} = #{id} and ${colums2} = #{name} and 
+		${colums3} = #{phone1} and  ${colums4} = #{phone2} and ${colums5} = #{phone3}
+	</select>
+
 </mapper>

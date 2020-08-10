@@ -10,6 +10,7 @@ import com.rsh.smp.vo.UsersVO;
 public class LoginService {
 
 	@Autowired ILoginDAO iLoginDAO;
+	
 	public boolean selectEmailIDSearch(String colums1, String colums2, String name, String email) {
 		String emailIDSearch = iLoginDAO.selectEmailIDSearch(colums1, colums2, name, email);
 		boolean alreadyExist;
@@ -41,14 +42,21 @@ public class LoginService {
 			String email) {
 		String emailPasswordSearch = iLoginDAO.selectEmailPasswordSearch(colums1, colums2, colums3, id, name, email);
 		boolean alreadyExist;
-		if(emailPasswordSearch != null) { alreadyExist = true;}
-		else {alreadyExist = false;}
+		if(emailPasswordSearch != null) { alreadyExist = true;} else {alreadyExist = false;}
 		return alreadyExist;
 	}
 
-	public void updateUsers(String colums1, String password) {
-		// TODO Auto-generated method stub
-		
+	public void updateUsers(String colums1, String colums2, String email, String password) {
+		iLoginDAO.updateUsers(colums1, colums2, email, password);
+	}
+
+	public boolean selectPhonePasswordSearch(String colums1, String colums2, String colums3, String colums4,
+			String colums5, String id, String name, String phone1, String phone2, String phone3) {
+		String phonePasswordSearch = iLoginDAO.selectPhonePasswordSearch
+				(colums1, colums2, colums3, colums4, colums5, id, name, phone1, phone2, phone3);
+		boolean alreadyExist;
+		if(phonePasswordSearch != null) { alreadyExist = true;} else {alreadyExist = false;}
+		return alreadyExist;
 	}
 
 }

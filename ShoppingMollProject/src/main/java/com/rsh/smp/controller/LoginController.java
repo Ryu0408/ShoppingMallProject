@@ -46,6 +46,10 @@ public class LoginController {
 				model.addAttribute("alertContent","로그인이 완료되었습니다^^");
 				model.addAttribute("path","");
 				session.setAttribute("sessionID", usersVO.getId());
+			}else if(usersVO.getPassword().contentEquals(joinService.selectUsersPassword(usersVO.getId()))){
+				model.addAttribute("alertContent","로그인이 완료되었습니다^^");
+				model.addAttribute("path","");
+				session.setAttribute("sessionID", usersVO.getId());
 			}else {
 				model.addAttribute("alertContent","비밀번호가 틀렸습니다.");
 				model.addAttribute("path","login/");
@@ -106,7 +110,7 @@ public class LoginController {
 				usersVO = loginService.selectGetUsers("email",usersVO.getEmail());
 				StringBuffer tempPassword = tempPassword();
 				usersVO.setPassword(tempPassword.toString());
-				loginService.updateUsers("password", usersVO.getPassword());
+				loginService.updateUsers("email", "password", usersVO.getEmail(), usersVO.getPassword());
 				model.addAttribute("usersVO", usersVO);
 				return "mailService";
 			}else {
@@ -114,22 +118,24 @@ public class LoginController {
 				model.addAttribute("path","login/passwordSearch/");
 			}
 		}else if(usersVO.getPhone2() != null) {
-			boolean alreadyExist = loginService.selectPhoneIDSearch("name","phone1", "phone2"
-					, "phone3", usersVO.getName(), usersVO.getPhone1(), usersVO.getPhone2(),
-					usersVO.getPhone3());
+			boolean alreadyExist = loginService.selectPhonePasswordSearch("id", "name",
+					"phone1", "phone2", "phone3", usersVO.getId(), usersVO.getName(), 
+					usersVO.getPhone1(), usersVO.getPhone2(), usersVO.getPhone3());
 			if(alreadyExist == true) {
-				usersVO = loginService.selectGetUsersPhone("phone1","phone2","phone3", 
-						usersVO.getPhone1(), usersVO.getPhone2(), usersVO.getPhone3());
-				model.addAttribute("alertContent","찾으시는 아이디는 " + usersVO.getId() + "입니다.");
-				model.addAttribute("path","login/");
+				usersVO = loginService.selectGetUsers("id",usersVO.getId());
+				StringBuffer tempPassword = tempPassword();
+				usersVO.setPassword(tempPassword.toString());
+				loginService.updateUsers("email", "password", usersVO.getEmail(), usersVO.getPassword());
+				model.addAttribute("usersVO", usersVO);
+				return "mailService";
 			}else {
 				model.addAttribute("alertContent","입력한 아이디/전화번호 또는 이름이 맞지 않습니다");
 				model.addAttribute("path","login/passwordSearch/");
 			}
 		}
 		return "alert";
-
 	}
+	
 	public StringBuffer tempPassword() {
 		Random rnd =new Random();
 		StringBuffer buf =new StringBuffer();

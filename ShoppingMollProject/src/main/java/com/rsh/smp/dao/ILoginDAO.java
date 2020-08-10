@@ -23,4 +23,12 @@ public interface ILoginDAO {
 			@Param("colums3")String colums3, @Param("id")String id, @Param("name")String name,
 			@Param("email") String email);
 
+	void updateUsers(@Param("colums1") String colums1, @Param("colums2")String colums2, 
+			@Param("email")String email, @Param("password") String password);
+
+	String selectPhonePasswordSearch(@Param("colums1")String colums1, @Param("colums2")String colums2, 
+			@Param("colums3")String colums3, @Param("colums4") String colums4, @Param("colums5")String colums5,
+			@Param("id")String id, @Param("name")String name, @Param("phone1")String phone1, 
+			@Param("phone2")String phone2, @Param("phone3")String phone3);
+
 }
