@@ -52,17 +52,15 @@
 							</p>
 						</div>
 						<div class = "col-sm-4">
-							<a>
-								<button class = "form-control form-control-sm"
-								style = "width:121px; float : right; font-size: 12px; color:gray">
-									배송주소록 관리
-								</button>
-							</a>
-							<a>
-								<button class = "form-control form-control-sm"
-								style = "width:110px; float : right; font-size: 12px; color:gray">
-									회원정보 수정
-								</button>
+							<button type = "button" class = "form-control form-control-sm" 
+							style = "width:121px; float : right; font-size: 12px; color:gray">
+								배송주소록 관리
+							</button>
+							<a href=" ${cpath}/userinfochange/">
+							<button type = "button" class = "form-control form-control-sm" 
+							style = "width:110px; float : right; font-size: 12px; color:gray">
+								회원정보 수정
+							</button>
 							</a>
 						</div>
 					</div>
