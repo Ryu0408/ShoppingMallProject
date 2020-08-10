@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.rsh.smp.vo.ColorVO;
 import com.rsh.smp.vo.ProductVO;
+import com.rsh.smp.vo.SizesVO;
 
 public interface IProductDAO {
 
@@ -14,4 +16,11 @@ public interface IProductDAO {
 			@Param("sort") String sort,
 			@Param("first") int first,
 			@Param("last") int last);
+
+	ProductVO selectProductVO(@Param("colums")String colums, 
+			@Param("info")String info);
+
+	List<ColorVO> selectColorVO(@Param("colums")String colums, @Param("info")String info);
+
+	List<SizesVO> selectSizesVO(@Param("colums")String colums, @Param("info")String info);
 }

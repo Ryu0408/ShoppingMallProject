@@ -65,19 +65,6 @@ public class JoinController {
 		return "alert";
 	}
 	
-	@RequestMapping(value = "/join/updateusers", method = RequestMethod.POST)
-	public String joinInsert(UsersVO usersVO, Model model) {
-		String inputPass = usersVO.getPassword();
-		String pwd = pwdEncoder.encode(inputPass);
-		usersVO.setPassword(pwd);
-		if(usersVO.getAgreeEmailCheck() == null) {usersVO.setAgreeEmailCheck("off");}
-		if(usersVO.getAgreeSmsCheck() == null) {usersVO.setAgreeSmsCheck("off");}
-		joinService.insertUsers(usersVO);
-		model.addAttribute("alertContent","회원가입을 축하드립니다^^");
-		model.addAttribute("path","");
-		return "alert";
-	}
-	
 	@RequestMapping(value = "/join/checkid/", produces="application/text;charset=utf8")
 	@ResponseBody
 	public String checkID(String id) {

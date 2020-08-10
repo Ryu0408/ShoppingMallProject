@@ -26,4 +26,8 @@ public class JoinService {
 		String password = iJoinDAO.selectUsersPassword(id);
 		return password;
 	}
+
+	public void updateUsers(UsersVO usersVO) {
+		iJoinDAO.updateUsers(usersVO);
+	}
 }

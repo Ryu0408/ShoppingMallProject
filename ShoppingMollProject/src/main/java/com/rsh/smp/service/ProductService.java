@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rsh.smp.dao.IProductDAO;
+import com.rsh.smp.vo.ColorVO;
 import com.rsh.smp.vo.ProductVO;
+import com.rsh.smp.vo.SizesVO;
 
 @Service
 public class ProductService {
@@ -26,5 +28,18 @@ public class ProductService {
 		List<ProductVO> listProductVO = iProductDAO.selectProductPage(product, sort, first, last);
 		return listProductVO;
 	}
+
+	public ProductVO selectProductVO(String colums, String info) {
+		return iProductDAO.selectProductVO(colums, info);
+	}
+
+	public List<ColorVO> selectColorVO(String colums, String info) {
+		return iProductDAO.selectColorVO(colums, info);
+	}
+
+	public List<SizesVO> selectSizesVO(String colums, String info) {
+		return iProductDAO.selectSizesVO(colums, info);
+	}
+
 
 }

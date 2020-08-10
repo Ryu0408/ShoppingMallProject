@@ -33,9 +33,13 @@
   		</c:if>
 		<div class="col-sm-3">
 			<div class="view overlay" style = "text-align: center;">
-				<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" class = "img-fluid" style = "width: 100%; height:350px">
+				<a href = "${cpath}/productdetail/${productVO.productnumber }/">
+				<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" 
+				class = "img-fluid" style = "width: 100%; height:350px"></a>
 				<br>
+				<a href = "${cpath}/productdetail/${productVO.productnumber }/" style = "color: black;">
 				<p class="font-weight-bold" style="font-family:Single Day;">${productVO.title }</p>
+				</a>
 				<hr class = "teal accent-3">
 				<p style="font-family:Single Day;">${productVO.subtitle }</p>
 				<p style="font-family:Single Day;">${productVO.price }</p>

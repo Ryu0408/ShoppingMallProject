@@ -29,5 +29,14 @@ public class ProductController {
 		model.addAttribute("listProductVO", productService.selectProductPage(product, sort, page));
 		return "product";  
 	}
+	
+	@RequestMapping(value = "/productdetail/{productnumber}/", method = RequestMethod.GET)
+	public String productDetail(@PathVariable("productnumber") String productnumber, Model model) {
+		model.addAttribute("productVO", productService.selectProductVO("productnumber", productnumber));
+		model.addAttribute("colorVO", productService.selectColorVO("productnumber", productnumber));
+		model.addAttribute("sizesVO", productService.selectSizesVO("productnumber", productnumber));
+
+		return "productDetail";  
+	}
 
 }

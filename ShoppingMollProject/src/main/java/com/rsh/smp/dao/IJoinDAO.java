@@ -12,4 +12,6 @@ public interface IJoinDAO {
 
 	String selectUsersPassword(@Param("id") String id);
 
+	void updateUsers(UsersVO usersVO);
+
 }

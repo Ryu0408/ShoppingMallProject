@@ -54,4 +54,21 @@
 		where st <![CDATA[>=]]>
 		${first}
 	</select>	
+	
+	<select id="selectProductVO" parameterType="String" 
+	resultType="com.rsh.smp.vo.ProductVO">
+		select * from product where ${colums} = ${info}
+	</select>
+	
+	<select id="selectColorVO" parameterType="String" 
+	resultType="com.rsh.smp.vo.ColorVO">
+		select * from color where ${colums} = ${info}
+	</select>
+	
+	<select id="selectSizesVO" parameterType="String" 
+	resultType="com.rsh.smp.vo.SizesVO">
+		select * from sizes where ${colums} = ${info}
+	</select>
+	
+
 </mapper>

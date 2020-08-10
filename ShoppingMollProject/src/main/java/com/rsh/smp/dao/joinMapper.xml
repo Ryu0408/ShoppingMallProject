@@ -22,4 +22,12 @@
 		select password from users where id = #{id}
 	</select>
 	
+	<insert id="updateUsers" parameterType="com.rsh.smp.vo.UsersVO">
+		update users set id = #{id}, name = #{name}, password = #{password}, 
+		phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3},
+		email = #{email}, postcode = #{postCode}, address = #{address}, 
+		detailaddress = #{detailAddress}, agreemailCheck = #{agreeEmailCheck},
+		agreesmscheck = #{agreeSmsCheck} where id = #{id}
+	</insert>
+		
 </mapper>
