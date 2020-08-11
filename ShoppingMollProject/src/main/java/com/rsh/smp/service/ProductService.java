@@ -41,5 +41,13 @@ public class ProductService {
 		return iProductDAO.selectSizesVO(colums, info);
 	}
 
+	public void insertCart(String colums, String usernumber, String productnumber, String amount, String color, String sizes) {	
+		iProductDAO.insertCart(colums, usernumber, productnumber, amount, color, sizes);
+	}
+
+	public String selectUserNumber(String selectColums, String colums, String info) {
+		return iProductDAO.selectUserNumber(selectColums, colums, info);
+	}
+
 
 }

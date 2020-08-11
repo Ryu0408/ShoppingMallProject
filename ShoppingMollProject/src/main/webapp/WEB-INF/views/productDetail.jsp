@@ -104,7 +104,7 @@
 				background-color: #000000 !important; padding: 0px;">
 					상품구매
 			</button>
-			<button type="button" class="btn btn-secondary" onClick="addProduct()"
+			<button type="button" class="btn btn-secondary" onClick="addCart()"
 				style="width:90px; margin:0px; margin-left:20px; height:50px; font-size: 12px; 
 				background-color: #00000061 !important; padding: 0px;">
 					장바구니
@@ -123,12 +123,14 @@ function addProduct(){
 	var price = "${productVO.price}"
 	$(".addList").
 	append('<tr>'+
-				'<td>' + color + '(' + size + ')' + '</td>' +
+				'<td class = "selectProduct">' + color + '(' + size + ')' + '</td>' +
 				'<td class = "tdStyle" style = "vertical-align:middle;">' +
 					'<input type ="text" class= "form-control form-control-sm changeQuantity"' +
 					'style = "width: 34px;height: 30px; text-align: center; margin: 0 auto;" value = "1" readonly>' +
-					'<a id="increaseQuantity' + i + '" onclick="increaseQuantity(' + i + ')"><img src="${cpath}/img/cart/btnup.gif"></a>' +
-					'<a id="decreaseQuantity' + i + '" onclick="decreaseQuantity(' + i + ')"><img src="${cpath}/img/cart/btndown.gif"></a>' + 
+					'<a id="increaseQuantity' + i + '" onclick="increaseQuantity(' + i + ')">' +
+						'<img src="${cpath}/img/cart/btnup.gif"></a>' +
+					'<a id="decreaseQuantity' + i + '" onclick="decreaseQuantity(' + i + ')">' +
+						'<img src="${cpath}/img/cart/btndown.gif"></a>' + 
 				'</td>' + 
 				'<td class="sell" style="text-align:center;">' + price + "</td>" + 
 			'</tr>'
@@ -183,6 +185,39 @@ function changeMoney(state, newValue, calculable){
 	var sum = sell * newValue;
 	sum = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	state.parent().parent().children(".sell").text(sum);
+}
+function addCart(){
+	const productnumber = "${productVO.productnumber }"
+	const colors = $(".selectProduct");
+	const amount = $(".changeQuantity");
+	var productArray = new Array();
+	if(colors.length == 0){
+		alert("선택된 상품이 없습니다.");
+		return;
+	}else{
+		for(i = 0 ; i< colors.length ; i++){
+			productArray.push({
+				productnumber : productnumber,
+				color : colors.eq(i).text(),
+				amount : amount.eq(i).val(),
+			})
+		}
+	}
+	$.ajax({
+		url:"${cpath}/productaddcart/",
+		method:"POST",
+        data: JSON.stringify(productArray),
+        dataType:'json',
+        async:false,
+        contentType :'application/json',
+		success : function(data) {
+			alert(data);
+			window.location = "${pageContext.request.contextPath }/productdetail/${productVO.productnumber}/";
+		},
+		error:function(data){
+			console.log("실패");
+		}
+	})
 }
 </script>
 </body>

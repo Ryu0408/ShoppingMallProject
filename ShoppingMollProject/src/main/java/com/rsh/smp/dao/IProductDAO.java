@@ -23,4 +23,11 @@ public interface IProductDAO {
 	List<ColorVO> selectColorVO(@Param("colums")String colums, @Param("info")String info);
 
 	List<SizesVO> selectSizesVO(@Param("colums")String colums, @Param("info")String info);
+
+	void insertCart(@Param("colums")String colums, @Param("usernumber")String usernumber, 
+			@Param("productnumber")String productnumber, @Param("amount")String amount, 
+			@Param("color")String color, @Param("sizes")String sizes);
+
+	String selectUserNumber(@Param("selectColums") String selectColums, @Param("colums")String 
+			colums, @Param("info") String info);
 }

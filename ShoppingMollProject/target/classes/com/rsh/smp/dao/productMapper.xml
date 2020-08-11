@@ -70,5 +70,14 @@
 		select * from sizes where ${colums} = ${info}
 	</select>
 	
-
+	<select id="selectUserNumber" parameterType="String" 
+	resultType="String">
+		select ${selectColums} from users where ${colums} = #{info}
+	</select>
+	
+	<insert id="insertCart" parameterType="String">
+		insert into cart(${colums}, productnumber, amount, color, sizes)
+		values
+		(${usernumber}, ${productnumber}, ${amount}, #{color}, #{sizes})
+	</insert>
 </mapper>
