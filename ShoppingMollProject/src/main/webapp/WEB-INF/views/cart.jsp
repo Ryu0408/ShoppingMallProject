@@ -384,7 +384,6 @@ function changeMoney(state, newValue){
 	}
 	totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	$(".total").text(totals);
-	
 }
 </script>
 </body>
