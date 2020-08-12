@@ -49,5 +49,13 @@ public class ProductService {
 		return iProductDAO.selectUserNumber(selectColums, colums, info);
 	}
 
+	public boolean selectCookieCheck(String cookieValue) {
+		String databaseCookie = iProductDAO.selectCookieCheck(cookieValue);
+		boolean cookieCheck;
+		if(databaseCookie != null) {cookieCheck = true;}
+		else{cookieCheck = false;}
+		return cookieCheck;
+	}
+
 
 }

@@ -5,6 +5,7 @@ package com.rsh.smp.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +59,7 @@ public class ProductController {
 			method = RequestMethod.POST)
 	@ResponseBody
 	public String productAddCart(@RequestBody List<Map<String, Object>> productArray,
-			HttpSession session, HttpServletResponse response)	{
+			HttpSession session, HttpServletResponse response, HttpServletRequest request)	{
 		String sessionID = (String) session.getAttribute("sessionID");
 		if(sessionID != null) {
 			String usernumber = productService.selectUserNumber("usernumber","id", sessionID);
@@ -71,9 +72,39 @@ public class ProductController {
 				productService.insertCart("usernumber", usernumber, productnumber, amount, color, sizes);
 			}
 		}else {
-			Cookie c = new Cookie("ryu","ryu");
-			c.setMaxAge(60 * 60 * 24 * 7);	// 초, 분, 시, 일 -> 일주일
-			response.addCookie(c);
+			boolean cookieCheck = false;
+			Cookie[] cookies = request.getCookies();
+			for (Cookie cookie : cookies) {
+				String cookieValue = cookie.getValue();
+				cookieCheck = productService.selectCookieCheck(cookieValue);
+				if(cookieCheck == true) {
+					for(int i=0;i<productArray.size();i++) {
+						String productnumber = (String)productArray.get(i).get("productnumber");
+						String[] colorAndSize = ((String) productArray.get(i).get("color")).split("\\(");
+						String amount = (String)productArray.get(i).get("amount");
+						String color = colorAndSize[0];
+						String sizes = colorAndSize[1].replaceAll("\\)", "");
+						productService.insertCart("cookienumber", cookieValue, productnumber, amount, color, sizes);
+					}
+					break;
+				}
+			}
+			if(cookieCheck == false) {
+				System.out.println("쿠키가 없다.");
+				Random random = new Random();
+				String cookieValue = random.nextInt() + "";
+				Cookie c = new Cookie("cookieValue",cookieValue);
+				c.setMaxAge(60 * 60 * 24 * 7);	// 초, 분, 시, 일 -> 일주일
+				response.addCookie(c);
+				for(int i=0;i<productArray.size();i++) {
+					String productnumber = (String)productArray.get(i).get("productnumber");
+					String[] colorAndSize = ((String) productArray.get(i).get("color")).split("\\(");
+					String amount = (String)productArray.get(i).get("amount");
+					String color = colorAndSize[0];
+					String sizes = colorAndSize[1].replaceAll("\\)", "");
+					productService.insertCart("cookienumber", cookieValue, productnumber, amount, color, sizes);
+				}
+			}
 		}
 		String jsonString = null;
 		ObjectMapper jsonMapper = new ObjectMapper();

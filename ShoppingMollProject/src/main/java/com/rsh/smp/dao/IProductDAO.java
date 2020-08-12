@@ -30,4 +30,6 @@ public interface IProductDAO {
 
 	String selectUserNumber(@Param("selectColums") String selectColums, @Param("colums")String 
 			colums, @Param("info") String info);
+
+	String selectCookieCheck(@Param("cookieValue") String cookieValue);
 }

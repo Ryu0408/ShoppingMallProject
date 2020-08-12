@@ -80,4 +80,10 @@
 		values
 		(${usernumber}, ${productnumber}, ${amount}, #{color}, #{sizes})
 	</insert>
+	
+	<select id="selectCookieCheck" parameterType="String" 
+	resultType="String">
+		select cookienumber from cart where cookienumber = #{cookieValue} and rownum = 1
+	</select>
+	
 </mapper>
