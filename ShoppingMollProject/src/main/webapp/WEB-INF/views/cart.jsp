@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath">${pageContext.request.contextPath }</c:set>
+
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
@@ -68,34 +71,41 @@ function checkAll(){
       			</tr>
     		</thead>
     		<tbody>
+    		  	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
+    		  	<c:set var="index">${st.index }</c:set>
     			<tr>
     				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type="checkbox" class="form-check-input" 
-   						style = "position:unset; margin: 0px" id="check1">
+    					<input type="checkbox" class="form-check-input check" 
+   						style = "position:unset; margin: 0px">
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend01.jpg">
-    				</td>
+						<a href = "${cpath}/productdetail/${productVO.productnumber }/">
+						<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" 
+						class = "img-fluid" style = "width: 110px; height:110px"></a>    				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
     					<p class="font-weight-bold" style = "margin-bottom: 3px">
-    						[다양한 코디 가능] 크롭 체크 셔츠/자켓으로도 가능해요
+    						${productVO.title }
     					</p>
-    					<p style = "color:gray;">[옵션: 브라운]</p>
+    					<p style = "color:gray;">[옵션: ${listCartVO[index].color}(${listCartVO[index].sizes })]</p>
     				</td>
     				<td class = "tdStyle sell" style = "vertical-align: middle;">
     					<p class = "font-weight-bold">
-    						25,000원
+    						${productVO.price }
+    						<c:set var="price" value="${productVO.price }"/>
+    						<c:set var="priceFirstChange" value="${fn:replace(price, ',', '')}"/>
+    						<c:set var="priceSecondChange" value="${fn:replace(priceFirstChange, '원', '')}"/>
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
     					<input type ="text" class= "form-control form-control-sm changeQuantity"
-    					style = "width: 34px;height: 30px; 	text-align: center; margin: 0 auto;" value = "1">
+    					style = "width: 34px;height: 30px; 	text-align: center; margin: 0 auto;" value = "${listCartVO[index].amount  }">
     					<a class="increaseQuantity"><img src="${cpath}/img/cart/btnup.gif"></a>
     					<a class="decreaseQuantity"><img src="${cpath}/img/cart/btndown.gif"></a>
     				</td>
     				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
     					<p class = "reserve">
-    						250원
+    						<fmt:formatNumber var = "priceWonChange" value="${priceSecondChange*0.01 }" type="number"/>
+    						${priceWonChange }원
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
@@ -105,7 +115,8 @@ function checkAll(){
     				</td>
     				<td class = "tdStyle sum" style = "vertical-align: middle;">
     					<p class = "font-weight-bold">
-    						25,000원
+    						<fmt:formatNumber var = "priceSumChange" value="${priceSecondChange * listCartVO[index].amount}" type="number"/>
+    						${priceSumChange }원
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
@@ -119,174 +130,7 @@ function checkAll(){
    						</button>
     				</td>
       			</tr>
-      			<tr>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type="checkbox" class="form-check-input" 
-   						style = "position:unset; margin: 0px" id="check2">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend02.jpg">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p class="font-weight-bold" style = "margin-bottom: 3px">
-    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
-    					</p>
-    					<p style = "color:gray;">[옵션: 화이트]</p>
-    				</td>
-    				<td class = "tdStyle sell" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type ="text" class= "form-control form-control-sm changeQuantity"
-    					style = "width: 34px;height: 30px; 	text-align: center; margin: 0 auto;" value = "1">
-    					<a class="increaseQuantity"><img src="${cpath}/img/cart/btnup.gif"></a>
-    					<a class="decreaseQuantity"><img src="${cpath}/img/cart/btndown.gif"></a>
-    				</td>
-    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
-    					<p class = "reserve">
-    						350원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						기본배송
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						무료
-    					</p>
-    				</td>
-    				<td class = "tdStyle sum" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문하기
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							삭제
-   						</button>
-    				</td>
-      			</tr>
-      			<tr>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type="checkbox" class="form-check-input" 
-   						style = "position:unset; margin: 0px" id="check3">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend03.jpg">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p class="font-weight-bold" style = "margin-bottom: 3px">
-    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
-    					</p>
-    					<p style = "color:gray;">[옵션: 화이트]</p>
-    				</td>
-    				<td class = "tdStyle sell" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type ="text" class= "form-control form-control-sm changeQuantity"
-    					style = "width: 34px;height: 30px; 	text-align: center; margin: 0 auto;" value = "1">
-    					<a class="increaseQuantity"><img src="${cpath}/img/cart/btnup.gif"></a>
-    					<a class="decreaseQuantity"><img src="${cpath}/img/cart/btndown.gif"></a>
-    				</td>
-    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
-    					<p class = "reserve">
-    						350원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						기본배송
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						무료
-    					</p>
-    				</td>
-    				<td class = "tdStyle sum" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문하기
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							삭제
-   						</button>
-    				</td>
-      			</tr>
-      			<tr>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type="checkbox" class="form-check-input" 
-   						style = "position:unset; margin: 0px" id="check4">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<img class= "imgStyle" src="${cpath}/img/main/recommand/recommend04.jpg">
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p class="font-weight-bold" style = "margin-bottom: 3px">
-    						[귀염귀염 리본 포인트] 앞,뒤 구분 없이 착용/민소매 코튼 블라우스
-    					</p>
-    					<p style = "color:gray;">[옵션: 화이트]</p>
-    				</td>
-    				<td class = "tdStyle sell" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<input type ="text" class= "form-control form-control-sm changeQuantity"
-    					style = "width: 34px;height: 30px; 	text-align: center; margin: 0 auto;" value = "1">
-    					<a class="increaseQuantity"><img src="${cpath}/img/cart/btnup.gif"></a>
-    					<a class="decreaseQuantity"><img src="${cpath}/img/cart/btndown.gif"></a>
-    				</td>
-    				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
-    					<p class = "reserve">
-    						350원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						기본배송
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						무료
-    					</p>
-    				</td>
-    				<td class = "tdStyle sum" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
-    						35,000원
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문하기
-   						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-   							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
-   							삭제
-   						</button>
-    				</td>
-      			</tr>
+      			</c:forEach>
     		</tbody>
 		</table>
 		<hr>
