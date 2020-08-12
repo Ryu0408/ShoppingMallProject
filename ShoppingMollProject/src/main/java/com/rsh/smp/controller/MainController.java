@@ -16,12 +16,7 @@ public class MainController {
 	public String main() {
 		return "main";
 	}
-				
-	@RequestMapping(value = "/cart/", method = RequestMethod.GET)
-	public String cart() {
-		return "cart";
-	}
-	
+					
 	@RequestMapping(value = "/mypage/", method = RequestMethod.GET)
 	public String mypage() {
 		return "mypage";

@@ -63,7 +63,6 @@ function checkAll(){
         			<th class = "thStyle">수량</th>
         			<th class = "thStyle">적립금</th>
         			<th class = "thStyle">배송구분</th>
-        			<th class = "thStyle">배송비</th>
         			<th class = "thStyle">합계</th>
         			<th class = "thStyle">선택</th>
       			</tr>
@@ -102,11 +101,6 @@ function checkAll(){
     				<td class = "tdStyle" style = "vertical-align: middle;">
     					<p>
     						기본배송
-    					</p>
-    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<p>
-    						무료
     					</p>
     				</td>
     				<td class = "tdStyle sum" style = "vertical-align: middle;">
