@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath">${pageContext.request.contextPath }</c:set>
 
+
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <style>
@@ -121,11 +122,11 @@ function checkAll(){
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+    					<button type="button" class="btn btn-secondary" onclick=""
 						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
    							주문하기
    						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+   						<button type="button" class="btn btn-secondary" onclick="deleteCart('${colums}', '${number}', '${listCartVO[index].color }', '${listCartVO[index].sizes}')"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
    							삭제
    						</button>
@@ -231,6 +232,48 @@ function changeMoney(state, newValue){
 	}
 	totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	$(".total").text(totals);
+}
+function deleteCart(colums, number, color, sizes){
+	console.log(colums);
+	console.log(number);
+	console.log(color);
+	console.log(sizes);
+// 	const id = $("#id").val();
+// 	if(id === ''){
+// 		$("#idmsg").text('아이디를 입력하세요');
+// 		$("#idmsg").css('color', 'red');
+// 		return;
+// 	}
+// 	else{
+// 		$("#idmsg").text('');
+// 	}
+// 	// Jquery를 이용한 ajax
+// 	$.ajax({
+// 		url:"${cpath}/join/checkid/",
+// 		method:"GET",
+// 		data:{id: id},
+// 		dataType:"text",
+// 		success : function(data) {
+// 			$("#idmsg").text(data);
+// 			if (data === '사용 가능한 계정입니다') {
+// 				var filter = /^[a-z]+[a-z0-9]{5,19}$/g; // 영문자로 시작하는 6~20자 영문자 또는 숫자
+// 				var checkid = $("#id").val();
+// 				if(!checkid.match(filter)){
+// 					$("#idmsg").text('아이디 형식에 맞지 않습니다');
+// 					$("#idmsg").css('color', 'red');	
+// 					$("#id").val('');
+// 				}else{
+// 					$("#idmsg").css('color', 'blue');	
+// 				}
+// 			} else {
+// 				$("#idmsg").css('color', 'red');
+// 				$("#id").val('');
+// 			}
+// 		},
+// 		error:function(data){
+// 			$("#idmsg").text('서버 통신 실패');
+// 		}
+// 	})
 }
 </script>
 </body>

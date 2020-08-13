@@ -2,7 +2,6 @@ package com.rsh.smp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +35,8 @@ public class CartController {
 			for(CartVO cartVO:listCartVO) {
 				 listProductVO.add(productService.selectProductVO("productnumber", (cartVO.getProductNumber()+"")));
 			}
+			model.addAttribute("colums","userNumber");
+			model.addAttribute("number",userNumber);
 			model.addAttribute("listCartVO",listCartVO);
 			model.addAttribute("listProductVO",listProductVO);
 		}else {
@@ -50,6 +51,8 @@ public class CartController {
 					for(CartVO cartVO:listCartVO) {
 						 listProductVO.add(productService.selectProductVO("productnumber", (cartVO.getProductNumber()+"")));
 					}
+					model.addAttribute("colums","cookienumber");
+					model.addAttribute("number", cookieValue);
 					model.addAttribute("listCartVO",listCartVO);
 					model.addAttribute("listProductVO",listProductVO);
 				}
