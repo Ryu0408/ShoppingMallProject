@@ -42,10 +42,10 @@ public class CartController {
 			boolean cookieCheck = false;
 			Cookie[] cookies = request.getCookies();
 			for (Cookie cookie : cookies) {
-				String cookieValue = cookie.getValue();
+				String cookieValue = cookie.getName();
 				cookieCheck = productService.selectCookieCheck(cookieValue);
 				if(cookieCheck == true) {
-					List<CartVO> listCartVO = cartService.selectCartVO("usernumber", userNumber);
+					List<CartVO> listCartVO = cartService.selectCartVO("cookienumber", cookieValue);
 					List<ProductVO> listProductVO = new ArrayList<ProductVO>();
 					for(CartVO cartVO:listCartVO) {
 						 listProductVO.add(productService.selectProductVO("productnumber", (cartVO.getProductNumber()+"")));
@@ -54,23 +54,6 @@ public class CartController {
 					model.addAttribute("listProductVO",listProductVO);
 				}
 			}
-			if(cookieCheck == false) {
-				System.out.println("쿠키가 없다.");
-				Random random = new Random();
-				String cookieValue = random.nextInt() + "";
-				Cookie c = new Cookie("cookieValue",cookieValue);
-				c.setMaxAge(60 * 60 * 24 * 7);	// 초, 분, 시, 일 -> 일주일
-				response.addCookie(c);
-				for(int i=0;i<productArray.size();i++) {
-					String productnumber = (String)productArray.get(i).get("productnumber");
-					String[] colorAndSize = ((String) productArray.get(i).get("color")).split("\\(");
-					String amount = (String)productArray.get(i).get("amount");
-					String color = colorAndSize[0];
-					String sizes = colorAndSize[1].replaceAll("\\)", "");
-					productService.insertCart("cookienumber", cookieValue, productnumber, amount, color, sizes);
-				}
-			}
-		}
 		}
 		return "cart";
 	}

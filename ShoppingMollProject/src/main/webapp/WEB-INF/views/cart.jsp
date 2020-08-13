@@ -71,6 +71,7 @@ function checkAll(){
       			</tr>
     		</thead>
     		<tbody>
+    			<c:if test="${not empty listProductVO}">
     		  	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
     		  	<c:set var="index">${st.index }</c:set>
     			<tr>
@@ -131,6 +132,14 @@ function checkAll(){
     				</td>
       			</tr>
       			</c:forEach>
+      			</c:if>
+      			<c:if test="${empty listProductVO }">
+      				<td colspan="9">
+      				    <p class = "font-weight-bold" style = "text-align: center">
+    						장바구니 정보가 없습니다^^
+    					</p>
+      				</td>
+      			</c:if>
     		</tbody>
 		</table>
 		<hr>

@@ -90,11 +90,11 @@ public class ProductController {
 				}
 			}
 			if(cookieCheck == false) {
-				System.out.println("쿠키가 없다.");
 				Random random = new Random();
 				String cookieValue = random.nextInt() + "";
-				Cookie c = new Cookie("cookieValue",cookieValue);
+				Cookie c = new Cookie(cookieValue,cookieValue);
 				c.setMaxAge(60 * 60 * 24 * 7);	// 초, 분, 시, 일 -> 일주일
+				c.setPath("/");
 				response.addCookie(c);
 				for(int i=0;i<productArray.size();i++) {
 					String productnumber = (String)productArray.get(i).get("productnumber");
