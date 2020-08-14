@@ -9,4 +9,20 @@
 		select * from cart where ${colums} = ${info} order by productnumber
 	</select>
 		
+	<delete id="deleteCart" parameterType="String">
+		<if test="colums.equals('cookienumber')">
+			DELETE From cart
+			WHERE ${colums} = #{number} and 
+			color = #{color} and
+			sizes = #{sizes}
+		</if>
+		<set></set>
+		<if test="colums.equals('userNumber')">
+			DELETE From cart
+			WHERE ${colums} = ${number} and 
+			color = #{color} and
+			sizes = #{sizes}
+		</if>
+	</delete>
+	
 </mapper>

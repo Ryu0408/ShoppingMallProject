@@ -10,4 +10,7 @@ public interface ICartDAO {
 
 	List<CartVO> selectCartVO(@Param("colums")String colums, @Param("info")String info);
 
+	void deleteCart(@Param("colums")String colums, @Param("number")String number, 
+			@Param("color")String color, @Param("sizes")String sizes);
+
 }

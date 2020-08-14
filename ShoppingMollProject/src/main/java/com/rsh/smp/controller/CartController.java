@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rsh.smp.service.CartService;
 import com.rsh.smp.service.ProductService;
@@ -59,5 +60,13 @@ public class CartController {
 			}
 		}
 		return "cart";
+	}
+
+	@RequestMapping(value = "/cart/deleteCart", produces="application/text;charset=utf8")
+	@ResponseBody
+	public String deleteCart(String colums, String number, String color, String sizes ) {
+		cartService.deleteCart(colums, number, color, sizes);
+		return "";
+		
 	}
 }

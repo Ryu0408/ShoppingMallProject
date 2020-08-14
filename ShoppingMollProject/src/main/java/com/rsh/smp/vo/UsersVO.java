@@ -16,8 +16,43 @@ public class UsersVO {
 	private String detailAddress;
 	private String agreeEmailCheck;
 	private String agreeSmsCheck;
+	private int totalorder;
+	private int totalreserve;
+	private int usereserve;
+	private int residualreserve;
+	private int countreserve;
 	
 	
+	public int getTotalorder() {
+		return totalorder;
+	}
+	public void setTotalorder(int totalorder) {
+		this.totalorder = totalorder;
+	}
+	public int getTotalreserve() {
+		return totalreserve;
+	}
+	public void setTotalreserve(int totalreserve) {
+		this.totalreserve = totalreserve;
+	}
+	public int getUsereserve() {
+		return usereserve;
+	}
+	public void setUsereserve(int usereserve) {
+		this.usereserve = usereserve;
+	}
+	public int getResidualreserve() {
+		return residualreserve;
+	}
+	public void setResidualreserve(int residualreserve) {
+		this.residualreserve = residualreserve;
+	}
+	public int getCountreserve() {
+		return countreserve;
+	}
+	public void setCountreserve(int countreserve) {
+		this.countreserve = countreserve;
+	}
 	public int getUsernumber() {
 		return usernumber;
 	}

@@ -12,8 +12,12 @@ import com.rsh.smp.vo.CartVO;
 public class CartService {
 
 	@Autowired ICartDAO iCartDAO;
+	
 	public List<CartVO> selectCartVO(String colums, String info) {
 		return iCartDAO.selectCartVO(colums, info);
+	}
+	public void deleteCart(String colums, String number, String color, String sizes) {
+		iCartDAO.deleteCart(colums, number, color, sizes);
 	}
 
 }

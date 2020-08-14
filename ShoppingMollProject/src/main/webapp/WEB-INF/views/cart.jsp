@@ -72,10 +72,12 @@ function checkAll(){
       			</tr>
     		</thead>
     		<tbody>
+    			<c:set var="priceSum" value="0"></c:set>
+    			<c:set var="reserveSum" value="0"></c:set>
     			<c:if test="${not empty listProductVO}">
     		  	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
     		  	<c:set var="index">${st.index }</c:set>
-    			<tr>
+    			<tr id = "tr${index }">
     				<td class = "tdStyle" style = "vertical-align: middle;">
     					<input type="checkbox" class="form-check-input check" 
    						style = "position:unset; margin: 0px">
@@ -96,6 +98,7 @@ function checkAll(){
     						<c:set var="price" value="${productVO.price }"/>
     						<c:set var="priceFirstChange" value="${fn:replace(price, ',', '')}"/>
     						<c:set var="priceSecondChange" value="${fn:replace(priceFirstChange, '원', '')}"/>
+    						<c:set var="priceSum" value = "${priceSum + priceSecondChange }"/>
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
@@ -107,6 +110,7 @@ function checkAll(){
     				<td class = "tdStyle reservetd" style = "vertical-align: middle;">
     					<p class = "reserve">
     						<fmt:formatNumber var = "priceWonChange" value="${priceSecondChange*0.01 }" type="number"/>
+    						<c:set var="reserveSum" value="${reserveSum + priceSecondChange*0.01 }"></c:set>
     						${priceWonChange }원
     					</p>
     				</td>
@@ -126,7 +130,8 @@ function checkAll(){
 						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
    							주문하기
    						</button><br>
-   						<button type="button" class="btn btn-secondary" onclick="deleteCart('${colums}', '${number}', '${listCartVO[index].color }', '${listCartVO[index].sizes}')"
+   						<button type="button" class="btn btn-secondary" onclick="deleteCart('${colums}', '${number}', 
+   						'${listCartVO[index].color }', '${listCartVO[index].sizes}', '${index }')"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
    							삭제
    						</button>
@@ -144,10 +149,12 @@ function checkAll(){
     		</tbody>
 		</table>
 		<hr>
+		<fmt:formatNumber var = "priceTotalSum" value="${priceSum}" type="number"/>
+		<fmt:formatNumber var = "reserveTotalSum" value="${reserveSum}" type="number"/>
 		<div class = "agreeForm" style = "font-size:13px; padding:13px;
 		text-align: right;">
-			상품구매금액 <strong class="font-weight-bold total">140,000</strong> + 배송비(5만원 이하 무료) <strong class="font-weight-bold deleverly">0</strong>
-			= 합계 : <strong class="font-weight-bold total" style = "font-size: 20px">140,000원</strong>
+			상품구매금액 <strong class="font-weight-bold total">${priceSum }</strong> + 배송비(5만원 이하 무료) <strong class="font-weight-bold deleverly">0</strong>
+			= 합계 : <strong class="font-weight-bold total" style = "font-size: 20px">${priceTotalSum }원</strong>(적립금:${reserveTotalSum }원)
 		</div>
 		<br>
 		<div class = "text-center">
@@ -233,47 +240,25 @@ function changeMoney(state, newValue){
 	totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	$(".total").text(totals);
 }
-function deleteCart(colums, number, color, sizes){
-	console.log(colums);
-	console.log(number);
-	console.log(color);
-	console.log(sizes);
-// 	const id = $("#id").val();
-// 	if(id === ''){
-// 		$("#idmsg").text('아이디를 입력하세요');
-// 		$("#idmsg").css('color', 'red');
-// 		return;
-// 	}
-// 	else{
-// 		$("#idmsg").text('');
-// 	}
-// 	// Jquery를 이용한 ajax
-// 	$.ajax({
-// 		url:"${cpath}/join/checkid/",
-// 		method:"GET",
-// 		data:{id: id},
-// 		dataType:"text",
-// 		success : function(data) {
-// 			$("#idmsg").text(data);
-// 			if (data === '사용 가능한 계정입니다') {
-// 				var filter = /^[a-z]+[a-z0-9]{5,19}$/g; // 영문자로 시작하는 6~20자 영문자 또는 숫자
-// 				var checkid = $("#id").val();
-// 				if(!checkid.match(filter)){
-// 					$("#idmsg").text('아이디 형식에 맞지 않습니다');
-// 					$("#idmsg").css('color', 'red');	
-// 					$("#id").val('');
-// 				}else{
-// 					$("#idmsg").css('color', 'blue');	
-// 				}
-// 			} else {
-// 				$("#idmsg").css('color', 'red');
-// 				$("#id").val('');
-// 			}
-// 		},
-// 		error:function(data){
-// 			$("#idmsg").text('서버 통신 실패');
-// 		}
-// 	})
+function priceTotalSum(){
+	console.log('우우우');
+}
+function deleteCart(colums, number, color, sizes, index){
+	$.ajax({
+		url:"${cpath}/cart/deleteCart/",
+		method:"GET",
+		data:{colums: colums,
+			number:number,
+			color:color,
+			sizes:sizes},
+		dataType:"text",
+		success : function(data) {
+			$('#tr'+index).remove();
+		},
+		error:function(data){
+			console.log("실패")
+		}
+	})
 }
 </script>
 </body>
