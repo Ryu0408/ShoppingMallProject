@@ -58,7 +58,8 @@
    					<input type = "hidden" value = "${productVO.productnumber }" class="productNumber">
 					<a href = "${cpath}/productdetail/${productVO.productnumber }/">
 					<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" 
-					class = "img-fluid" style = "width: 110px; height:110px"></a>    				</td>
+					class = "img-fluid" style = "width: 110px; height:110px"></a>    				
+				</td>
    				<td class = "tdStyle" style = "vertical-align: middle;">
    					<p class="font-weight-bold" style = "margin-bottom: 3px">
    						${productVO.title }

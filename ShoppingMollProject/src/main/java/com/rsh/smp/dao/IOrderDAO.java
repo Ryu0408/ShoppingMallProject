@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.rsh.smp.vo.CouponVO;
+import com.rsh.smp.vo.OrdersVO;
 
 public interface IOrderDAO {
 
@@ -27,5 +28,7 @@ public interface IOrderDAO {
 	void updateResidualReserve(@Param("number")int usernumber);
 
 	void updateUserTotalOrder(@Param("number")int number);
+
+	List<OrdersVO> selectGetOrders(@Param("colums")String colums, @Param("usernumber")int usernumber);
 
 }

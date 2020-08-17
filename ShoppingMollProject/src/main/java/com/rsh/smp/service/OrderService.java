@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rsh.smp.dao.IOrderDAO;
 import com.rsh.smp.vo.CouponVO;
+import com.rsh.smp.vo.OrdersVO;
 
 @Service
 public class OrderService {
@@ -42,6 +43,10 @@ public class OrderService {
 	public void updateUserReserve(int usernumber, String reserveinput, String reserveSum) {
 		iOrderDAO.updateUserReserve(usernumber, reserveinput, reserveSum);
 		iOrderDAO.updateResidualReserve(usernumber);
+	}
+
+	public List<OrdersVO> selectGetOrders(String colums, int usernumber) {
+		return iOrderDAO.selectGetOrders(colums,usernumber);
 	}
 
 }

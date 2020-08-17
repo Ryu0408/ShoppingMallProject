@@ -79,20 +79,24 @@
     			<a class="nav-link" href="${cpath}/logout/">Logout</a>
     		</li>
     		</c:if>
+    		<c:if test="${sessionScope.sessionID == null }">
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
    				<a class="nav-link" href="${cpath}/join/">Join us</a>
  			</li>
+    		</c:if>
+    		<c:if test="${sessionScope.sessionID != null }">
+			<li class="nav-item" style="font-family:Nanum Pen Script;">
+      			<a class="nav-link" href="${cpath}/mypage/">Mypage</a>
+    		</li>
+    		</c:if>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="${cpath}/cart/">Cart</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/mypage/">Mypage</a>
-    		</li>
-			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/notice/">Notice</a>
+      			<a class="nav-link" href="${cpath}/board/notice/1/10/">Notice</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/q&a/">Q&A</a>
+      			<a class="nav-link" href="${cpath}/board/Q&A/1/10/">Q&A</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="${cpath}/review/">REVIEW</a>

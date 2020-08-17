@@ -164,11 +164,7 @@ function checkAll(){
 		<div class = "text-center">
 			<button type="button" class="btn btn-secondary" onclick="order()"
 				style="width:140px; font-size: 11px; background-color: #0a090aad !important;">
-   				<b class="font-weight-bold">전체상품주문</b>
-   			</button>
-   			<button type="button" class="btn btn-secondary" onclick="order()"
-				style="width:140px; font-size: 11px; background-color: #9a8888 !important;">
-   				<b class="font-weight-bold">선택상품주문</b>
+   				<b class="font-weight-bold">상품주문</b>
    			</button>
 		</div>
 	</form>
@@ -276,7 +272,6 @@ function deleteCart(colums, number, color, sizes, index){
 				$(".deleverly").text(0);
 			}
 			total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-
 			totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 			$(".total").text(total);
 			$(".totals").text(totals);

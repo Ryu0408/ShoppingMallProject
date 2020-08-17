@@ -39,6 +39,7 @@
 				<value>classpath:com/rsh/smp/dao/loginMapper.xml</value>
 				<value>classpath:com/rsh/smp/dao/cartMapper.xml</value>
 				<value>classpath:com/rsh/smp/dao/orderMapper.xml</value>
+				<value>classpath:com/rsh/smp/dao/boardMapper.xml</value>
 			</list>
 		</property>
 	</bean>

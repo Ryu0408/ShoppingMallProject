@@ -44,4 +44,9 @@
 		update users set residualreserve = totalreserve - usereserve
 		where usernumber = ${number}
 	</update>
+	
+	<select id="selectGetOrders" resultType="com.rsh.smp.vo.OrdersVO">
+		select * from orders where ${colums} = ${usernumber}
+	</select>
+	
 </mapper>

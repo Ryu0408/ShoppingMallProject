@@ -16,21 +16,6 @@ public class MainController {
 	public String main() {
 		return "main";
 	}
-					
-	@RequestMapping(value = "/mypage/", method = RequestMethod.GET)
-	public String mypage() {
-		return "mypage";
-	}
-	
-	@RequestMapping(value = "/notice/", method = RequestMethod.GET)
-	public String notice() {
-		return "notice";
-	}
-	
-	@RequestMapping(value = "/q&a/", method = RequestMethod.GET)
-	public String qna() {
-		return "q&a";
-	}
 	
 	@RequestMapping(value = "/review/", method = RequestMethod.GET)
 	public String review() {

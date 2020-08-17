@@ -13,9 +13,17 @@ public class OrdersVO {
 	private String color;
 	private String sizes;
 	private List<OrdersVO> ordersVOList;
+	private String registdate;
+	
 	
 	
 
+	public String getRegistdate() {
+		return registdate;
+	}
+	public void setRegistdate(String registdate) {
+		this.registdate = registdate;
+	}
 	public List<OrdersVO> getOrdersVOList() {
 		return ordersVOList;
 	}
