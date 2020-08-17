@@ -99,8 +99,8 @@
 	    		</table>
 	    		<hr style = "border-top: 2px solid black;">
     		</form>
-			<button type="button" class="btn btn-secondary" onClick="addProduct()"
-				style="width:90px; margin:0px; margin-left:510px; height:50px; font-size: 12px; 
+			<button type="button" class="btn btn-secondary" onClick="order()"
+				style="width:90px; margin:0px; margin-left:10px; height:50px; font-size: 12px; 
 				background-color: #000000 !important; padding: 0px;">
 					상품구매
 			</button>
@@ -122,8 +122,13 @@ function addProduct(){
 	var size = $(".size").val();
 	var price = "${productVO.price}"
 	$(".addList").
-	append('<tr>'+
-				'<td class = "selectProduct">' + color + '(' + size + ')' + '</td>' +
+	append('<tr id = tr' + i + ' class="cartList">' +
+				'<td class = "selectProduct">' + color + '(' + size + ')' +
+				'<input type="button" class="btn btn-secondary" onClick="deleteProduct('+i+'\, \''+price+'\')"'+' ' +
+					'style="width:30px; margin:0px; margin-left:20px; height:23px; font-size: 12px;'+
+					'background-color: #000000f7 !important; padding: 0px;" value = "삭제">'+
+				'</button>'+
+				 '</td>' +
 				'<td class = "tdStyle" style = "vertical-align:middle;">' +
 					'<input type ="text" class= "form-control form-control-sm changeQuantity"' +
 					'style = "width: 34px;height: 30px; text-align: center; margin: 0 auto;" value = "1" readonly>' +
@@ -132,7 +137,9 @@ function addProduct(){
 					'<a id="decreaseQuantity' + i + '" onclick="decreaseQuantity(' + i + ')">' +
 						'<img src="${cpath}/img/cart/btndown.gif"></a>' + 
 				'</td>' + 
-				'<td class="sell" style="text-align:center;">' + price + "</td>" + 
+				'<td class="sell" style="text-align:center;">' + price +
+				'</td>' + 
+
 			'</tr>'
 	);
 	price = (price.replace(rgx3,"").replace("원","")) * 1;
@@ -218,6 +225,48 @@ function addCart(){
 			console.log("실패");
 		}
 	})
+}
+function deleteProduct(index, price){
+	var rgx3 = /,/gi;
+	price = price.replace(rgx3,"").replace("원","");
+	var total = ($("#total").text().replace(rgx3,"").replace("원","")) * 1;
+	total = (total - price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";		
+	$("#total").text(total);
+	$('#tr'+index).remove();
+}
+function order(){
+	var rgx3 = /,/gi;
+	var form = document.createElement("form");
+	const amount = $(".changeQuantity");
+	var price = "${productVO.price}"
+	var cartList = $(".cartList");
+	price = (price.replace(rgx3,"").replace("원","")) * 1;
+	form.setAttribute("method","post");
+	form.setAttribute("action", "${cpath}/order/productDetail/");
+	document.body.appendChild(form);
+	for(i=0;i<cartList.length;i++){
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "productnumber");      
+		input_id.setAttribute("value", ${productVO.productnumber });        
+		form.appendChild(input_id);
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "amount");      
+		input_id.setAttribute("value", amount.eq(i).val());
+		form.appendChild(input_id);  
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "price");      
+		input_id.setAttribute("value", price);
+		form.appendChild(input_id);  
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "colorAndSize");      
+		input_id.setAttribute("value", cartList.eq(i).children(".selectProduct").text());
+		form.appendChild(input_id);  
+	}
+	form.submit();
 }
 </script>
 </body>

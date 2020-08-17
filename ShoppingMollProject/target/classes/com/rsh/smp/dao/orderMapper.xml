@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace = "com.rsh.smp.dao.IOrderDAO">
+	<select id="getCouponList" parameterType="int" 
+	resultType="com.rsh.smp.vo.CouponVO">
+		select * from coupon where usernumber = #{usernumber}
+	</select>
+	
+	<insert id="insertOrder">
+		insert into orders(${colums},productnumber,amount,
+		price,color,sizes,name,postcode,phone1,phone2,phone3,
+		email,message, detailaddress, address)
+		values(${number},${productNumber},${amount},${price},
+		#{color},#{sizes},#{name},#{postCode},#{phone1},#{phone2},
+		#{phone3},#{email},#{message}, #{detailAddress}, #{address})
+	
+	</insert>
+	
+	<delete id = "couponDelete">
+		delete  from coupon where usernumber = ${usernumber} and name = #{couponName}
+	</delete>
+	
+	<update id = "updateUserTotalPrice" parameterType="int">
+		update users set totalorderprice = totalorderprice + ${totalorderprice} where usernumber = ${number}
+	</update>
+	
+	<update id = "updateUserTotalOrder" parameterType="int">
+		update users set totalorder = totalorder + 1 where usernumber = ${number}
+	</update>
+
+	<update id = "updateUserReserve">
+		update users set totalreserve = totalreserve + ${reserveSum},
+		usereserve = usereserve + ${reserveinput}
+		<if test='!reserveinput == ("0")'>
+			, countreserve = countreserve + 1
+		</if>
+		where usernumber = ${number}
+	</update>
+	
+	<update id = "updateResidualReserve">
+		update users set residualreserve = totalreserve - usereserve
+		where usernumber = ${number}
+	</update>
+</mapper>

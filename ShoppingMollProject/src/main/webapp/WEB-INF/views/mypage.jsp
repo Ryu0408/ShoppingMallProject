@@ -52,10 +52,6 @@
 							</p>
 						</div>
 						<div class = "col-sm-4">
-							<button type = "button" class = "form-control form-control-sm" 
-							style = "width:121px; float : right; font-size: 12px; color:gray">
-								배송주소록 관리
-							</button>
 							<a href=" ${cpath}/userinfochange/">
 							<button type = "button" class = "form-control form-control-sm" 
 							style = "width:110px; float : right; font-size: 12px; color:gray">
@@ -83,11 +79,6 @@
 								<br>
 								<p style = "color : gray; margin-top: -10px;">가용 적립금</p>
 								<b class = "font-weight-bold useratag">350원</b>
-								<button type="button" class="btn btn-secondary" onclick="checkMenu()"
-								style="width:35px; height:21px; font-size: 12px; 
-								background-color: #0a090aad !important;padding:0px;">
-   									조회
-   								</button>
  							</li>
 							<li class="nav-item" style = "padding-right: 10px; padding-left: 10px; 
 								border-left : 0.5px solid #ced4da; border-right : 0.5px dotted #ced4da;">

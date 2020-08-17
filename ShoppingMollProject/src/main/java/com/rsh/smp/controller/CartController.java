@@ -40,6 +40,7 @@ public class CartController {
 			model.addAttribute("number",userNumber);
 			model.addAttribute("listCartVO",listCartVO);
 			model.addAttribute("listProductVO",listProductVO);
+			model.addAttribute("usersSession",usersSession);
 		}else {
 			boolean cookieCheck = false;
 			Cookie[] cookies = request.getCookies();

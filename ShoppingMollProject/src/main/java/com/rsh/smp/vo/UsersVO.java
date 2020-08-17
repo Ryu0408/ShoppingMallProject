@@ -21,8 +21,15 @@ public class UsersVO {
 	private int usereserve;
 	private int residualreserve;
 	private int countreserve;
+	private int totalorderprice;
 	
 	
+	public int getTotalorderprice() {
+		return totalorderprice;
+	}
+	public void setTotalorderprice(int totalorderprice) {
+		this.totalorderprice = totalorderprice;
+	}
 	public int getTotalorder() {
 		return totalorder;
 	}

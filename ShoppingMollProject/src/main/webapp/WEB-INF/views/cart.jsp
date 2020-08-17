@@ -34,17 +34,11 @@
 function checkAll(){
 	const checkAll = $("#allCheck").is(":checked");
 	if(checkAll == true){
-		$("#check1").prop("checked", true);
-		$("#check2").prop("checked", true);
-		$("#check3").prop("checked", true);
-		$("#check4").prop("checked", true);
+		$(".check").prop("checked", true);
 
 	}
 	else if(checkAll == false){
-		$("#check1").prop("checked", false);
-		$("#check2").prop("checked", false);
-		$("#check3").prop("checked", false);
-		$("#check4").prop("checked", false);
+		$(".check").prop("checked", false);
 	}
 }
 </script>
@@ -52,7 +46,7 @@ function checkAll(){
 	<form id = "frm">
 		<h6 class="text-uppercase font-weight-bold" style="margin-top: 30px;">장바구니</h6>
 		<div class = "agreeForm" style = "font-size:13px; padding:13px;">
-			<strong class="font-weight-bold">상품 (2)</strong>
+			<strong class="font-weight-bold">상품(${fn:length(listProductVO)}) </strong>
 		</div>
 		<table class="table">
     		<thead>
@@ -77,23 +71,24 @@ function checkAll(){
     			<c:if test="${not empty listProductVO}">
     		  	<c:forEach var = "productVO" items="${listProductVO}" varStatus="st">
     		  	<c:set var="index">${st.index }</c:set>
-    			<tr id = "tr${index }">
+    			<tr id = "tr${index }" class = "cartList">    			
     				<td class = "tdStyle" style = "vertical-align: middle;">
     					<input type="checkbox" class="form-check-input check" 
    						style = "position:unset; margin: 0px">
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
+    					<input type = "hidden" value = ${productVO.productnumber } class = "productnumber">
 						<a href = "${cpath}/productdetail/${productVO.productnumber }/">
 						<img src="${cpath}/img/product/${productVO.kind }/${productVO.kind }${productVO.productnumber }-1.jpg" 
 						class = "img-fluid" style = "width: 110px; height:110px"></a>    				</td>
-    				<td class = "tdStyle" style = "vertical-align: middle;">
+    				<td class = "tdStyle colorSize" style = "vertical-align: middle;">
     					<p class="font-weight-bold" style = "margin-bottom: 3px">
     						${productVO.title }
     					</p>
-    					<p style = "color:gray;">[옵션: ${listCartVO[index].color}(${listCartVO[index].sizes })]</p>
+    					<p style = "color:gray;" class = "selectProduct">${listCartVO[index].color}(${listCartVO[index].sizes })</p>
     				</td>
     				<td class = "tdStyle sell" style = "vertical-align: middle;">
-    					<p class = "font-weight-bold">
+    					<p class = "font-weight-bold productPrice">
     						${productVO.price }
     						<c:set var="price" value="${productVO.price }"/>
     						<c:set var="priceFirstChange" value="${fn:replace(price, ',', '')}"/>
@@ -126,10 +121,6 @@ function checkAll(){
     					</p>
     				</td>
     				<td class = "tdStyle" style = "vertical-align: middle;">
-    					<button type="button" class="btn btn-secondary" onclick=""
-						style="width:72px; font-size: 10px; background-color: #0a090aad !important; padding:6px">
-   							주문하기
-   						</button><br>
    						<button type="button" class="btn btn-secondary" onclick="deleteCart('${colums}', '${number}', 
    						'${listCartVO[index].color }', '${listCartVO[index].sizes}', '${index }')"
    							style="width:72px; font-size: 10px; background-color: #40a55fad !important; padding:6px">
@@ -153,16 +144,29 @@ function checkAll(){
 		<fmt:formatNumber var = "reserveTotalSum" value="${reserveSum}" type="number"/>
 		<div class = "agreeForm" style = "font-size:13px; padding:13px;
 		text-align: right;">
-			상품구매금액 <strong class="font-weight-bold total">${priceSum }</strong> + 배송비(5만원 이하 무료) <strong class="font-weight-bold deleverly">0</strong>
-			= 합계 : <strong class="font-weight-bold total" style = "font-size: 20px">${priceTotalSum }원</strong>(적립금:${reserveTotalSum }원)
+			상품구매금액 <strong class="font-weight-bold total">${priceSum }</strong> + 배송비(5만원 이하 무료) 
+			<c:if test="${priceSum*1 <= 50000}">
+				<fmt:formatNumber var = "deliveryPrice" value="2500" type="number"/>
+				<strong class="font-weight-bold deleverly">${deliveryPrice }</strong>
+				<fmt:formatNumber var = "priceTotalSum" value="${priceSum + 2500}" type="number"/>
+			</c:if>
+			<c:if test="${priceSum*1 > 50000}">
+				<fmt:formatNumber var = "deliveryPrice" value="0" type="number"/>
+				<strong class="font-weight-bold deleverly">${deliveryPrice }</strong>
+				<fmt:formatNumber var = "priceTotalSum" value="${priceSum}" type="number"/>
+			</c:if>	
+			= 합계 : <strong class="font-weight-bold totals" style = "font-size: 20px">${priceTotalSum }원</strong>
+			<c:if test="${not empty usersSession }">
+				(적립금:${reserveTotalSum }원)
+			</c:if>
 		</div>
 		<br>
 		<div class = "text-center">
-			<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+			<button type="button" class="btn btn-secondary" onclick="order()"
 				style="width:140px; font-size: 11px; background-color: #0a090aad !important;">
    				<b class="font-weight-bold">전체상품주문</b>
    			</button>
-   			<button type="button" class="btn btn-secondary" onclick="checkMenu()"
+   			<button type="button" class="btn btn-secondary" onclick="order()"
 				style="width:140px; font-size: 11px; background-color: #9a8888 !important;">
    				<b class="font-weight-bold">선택상품주문</b>
    			</button>
@@ -237,12 +241,18 @@ function changeMoney(state, newValue){
 		.children(".font-weight-bold").text().replace(rgx3,"").replace("원","");
 		totals = totals + total * 1
 	}
-	totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+	if(totals<50000){ 
+		totalss = totals + 2500;
+		$(".deleverly").text("2,500");
+	}else{ 
+		totalss = totals + 0;
+		$(".deleverly").text(0);
+	}
+	totalss = totalss.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	$(".total").text(totals);
+	$(".totals").text(totalss);
 }
-function priceTotalSum(){
-	console.log('우우우');
-}
+
 function deleteCart(colums, number, color, sizes, index){
 	$.ajax({
 		url:"${cpath}/cart/deleteCart/",
@@ -253,12 +263,64 @@ function deleteCart(colums, number, color, sizes, index){
 			sizes:sizes},
 		dataType:"text",
 		success : function(data) {
+			var rgx3 = /,/gi;
+			var sell = $('#tr'+index).children(".sum").children(".font-weight-bold").text().replace(rgx3,"").replace("원","");
 			$('#tr'+index).remove();
+			var total = $(".total").eq(0).text().replace(rgx3,"").replace("원","");
+			total = total - sell * 1;
+			if(total<50000){ 
+				totals = total + 2500 * 1;
+				$(".deleverly").text("2,500");
+			}else{ 
+				totals = total + 0 * 1;
+				$(".deleverly").text(0);
+			}
+			total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+
+			totals = totals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+			$(".total").text(total);
+			$(".totals").text(totals);
 		},
 		error:function(data){
 			console.log("실패")
 		}
 	})
+}
+
+function order(){
+	var rgx3 = /,/gi;
+	var form = document.createElement("form");
+	const amount = $(".changeQuantity");
+	var price = $(".productPrice")
+	var cartList = $(".cartList");
+	var productnumber = $(".productnumber");
+	form.setAttribute("method","post");
+	form.setAttribute("action", "${cpath}/order/productDetail/");
+	document.body.appendChild(form);
+	for(i=0;i<cartList.length;i++){
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "productnumber");      
+		input_id.setAttribute("value", productnumber.eq(i).val());        
+		form.appendChild(input_id);
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "amount");      
+		input_id.setAttribute("value", amount.eq(i).val());
+		form.appendChild(input_id);  
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "price");      
+		input_id.setAttribute("value", (price.eq(i).text().replace(rgx3,"").replace("원","")) *1);
+		form.appendChild(input_id);  
+		var input_id = document.createElement("input");
+		input_id.setAttribute("type", "hidden");
+		input_id.setAttribute("name", "colorAndSize");      
+		console.log("value", cartList.eq(i).children(".colorSize").children(".selectProduct").text());
+		input_id.setAttribute("value", cartList.eq(i).children(".colorSize").children(".selectProduct").text());
+		form.appendChild(input_id);  
+	}
+	form.submit();
 }
 </script>
 </body>

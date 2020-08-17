@@ -65,12 +65,28 @@
   		<div class="tab-pane container fade" id="nonMember">
   			<form action="/action_page.php">
   			<p style = "margin-top:20px; font-size: 13px; color:gray">
-  				비회원의 경우, 주문시의 주문번호로 주문조회가 가능합니다.
+  				비회원의 경우, 주문시의 주문명, 전화번호로가 조회 가능합니다.
   			</p>
     			<div class="form-group" style = "width:430px;margin-left: auto;margin-right: auto;">
-      				<input type="text" class="form-control" placeholder="주문자명" name="nonUserName">
-      				<input type="text" class="form-control" placeholder="주문번호" name="orderNumber">
-      				<input type="password" class="form-control" placeholder="비회원주문 바밀번호" name="nonUserPassword">
+      				<input type="text" class="form-control" placeholder="주문자명" name="name">
+      				<div class = "form-control" style = "width:430px;margin-left: auto;margin-right: auto;
+      				padding-top: 20px;">	
+	      				<select class="form-control-sm" id = "phone1" name = "phone1" 
+	        				style = "width:70px;">
+	        					<option value="010">010</option>
+	        					<option value="010">011</option>
+	        					<option value="010">016</option>
+	        					<option value="010">017</option>
+	        					<option value="010">018</option>
+	        					<option value="010">019</option>
+	        			</select>
+	        			<b>&nbsp;-&nbsp;</b>
+	        			<input type="number" class="form-control-sm" id = "phone2" name = "phone2" 
+	        			style = "width:70px;">
+	        			<b>&nbsp;-&nbsp;</b>
+	        			<input type="number" class="form-control-sm" id = "phone3" name = "phone3" 
+	        			style = "width:70px;"> 
+    				</div>
     			</div>
    				<button type="submit" class="btn btn-secondary" style="width:320px; font-size: 15px; background-color: #0a090aad !important;">
    					<b class="font-weight-bold">주문조회</b>

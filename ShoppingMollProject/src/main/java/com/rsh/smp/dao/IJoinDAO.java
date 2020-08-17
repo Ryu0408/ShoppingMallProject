@@ -14,4 +14,7 @@ public interface IJoinDAO {
 
 	void updateUsers(UsersVO usersVO);
 
+	void insertNewCoupon(@Param("usernumber")String usernumber, @Param("name")String name, 
+			@Param("price")int price);
+
 }

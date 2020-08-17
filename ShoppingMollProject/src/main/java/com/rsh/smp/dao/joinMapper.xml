@@ -30,4 +30,8 @@
 		agreesmscheck = #{agreeSmsCheck} where id = #{id}
 	</update>
 		
+	<insert id="insertNewCoupon">
+		insert into coupon
+		values(${usernumber}, #{name}, ${price})
+	</insert>
 </mapper>
