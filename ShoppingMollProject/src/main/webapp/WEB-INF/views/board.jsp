@@ -35,62 +35,62 @@ function list(page){
 }
 </script>
 <div class="container overlap">
-		<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${kind}</h6>
-		<br>
-		<br>
-		<hr style = "margin-top: 0rem; margin-bottom: 0rem;">
-		<table class="table">
-	    	<thead>
-	      		<tr style = "text-align: center">
-	        		<th class = "thStyle">번호</th>
-	        		<th class = "thStyle">제목</th>
-	        		<th class = "thStyle">작성자</th>
-	        		<th class = "thStyle">작성일</th>
-	        		<th class = "thStyle">조회</th>
-	      		</tr>
-	    	</thead>
-	    	<tbody>
-	    		<c:forEach var = "row" items="${list}">
-	      		<tr style = "text-align: center">
-	        		<th class = "thStyle">${row.boardnumber }</th>
-	        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${row.boardnumber}">${row.title }</a></th>
-	        		<th class = "thStyle">${row.writer}</th>
-	        		<th class = "thStyle">${row.register }</th>
-	        		<th class = "thStyle">${row.hit }</th>
-	      		</tr>
-	      		</c:forEach>
-	      		<tr>
-	      			<td colspan = "5" style = "text-align: center">
-	      				<c:if test="${boardPager.curBlock > 1 }">
-	      					<a href="javascript:list('1')">[처음]</a>
-	      				</c:if>
-	      				<c:if test = "${boardPager.curBlock>1 }">
-	      					<a href="javascript:list('${boardPager.prevPage }')">[이전 페이지]</a>
-	      				</c:if>
-	      				<c:forEach var="num" begin="${boardPager.blockBegin }"
-	      				end="${boardPager.blockEnd }">
-	      					<c:choose>
-	      						<c:when test ="${num == boardPager.curPage }">
-	      							<span style = "color:red">${num }</span>&nbsp;
-	      						</c:when>
-	      						<c:otherwise>
-	      							<a href = "javascript:list('${num }')">${num }</a>&nbsp;
-	      						</c:otherwise>
-	      					</c:choose>
-	      				</c:forEach>
-	      				<c:if test = "${boardPager.curBlock  <= boardPager.totBlock}">
-	      					<a href="javascript:list('${boardPager.nextPage }')">[다음 페이지]</a>
-	      				</c:if>
-	      				<c:if test = "${boardPager.curPage <= boardPager.totPage }">
-	      					<a href = "javascript:list('${ boardPager.totPage}')">[끝]</a>
-	      				</c:if>
-	      			</td>
-	      		</tr>
-	    	</tbody>
-		</table>
-		<hr>				
-		<br>
-		<form id = "frm" action="${cpath}/board/">
+	<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${kind}</h6>
+	<br>
+	<br>
+	<hr style = "margin-top: 0rem; margin-bottom: 0rem;">
+	<table class="table">
+    	<thead>
+      		<tr style = "text-align: center">
+        		<th class = "thStyle">번호</th>
+        		<th class = "thStyle">제목</th>
+        		<th class = "thStyle">작성자</th>
+        		<th class = "thStyle">작성일</th>
+        		<th class = "thStyle">조회</th>
+      		</tr>
+    	</thead>
+    	<tbody>
+    		<c:forEach var = "row" items="${list}">
+      		<tr style = "text-align: center">
+        		<th class = "thStyle">${row.boardnumber }</th>
+        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${row.boardnumber}">${row.title }</a></th>
+        		<th class = "thStyle">${row.writer}</th>
+        		<th class = "thStyle">${row.register }</th>
+        		<th class = "thStyle">${row.hit }</th>
+      		</tr>
+      		</c:forEach>
+      		<tr>
+      			<td colspan = "5" style = "text-align: center">
+      				<c:if test="${boardPager.curBlock > 1 }">
+      					<a href="javascript:list('1')">[처음]</a>
+      				</c:if>
+      				<c:if test = "${boardPager.curBlock>1 }">
+      					<a href="javascript:list('${boardPager.prevPage }')">[이전 페이지]</a>
+      				</c:if>
+      				<c:forEach var="num" begin="${boardPager.blockBegin }"
+      				end="${boardPager.blockEnd }">
+      					<c:choose>
+      						<c:when test ="${num == boardPager.curPage }">
+      							<span style = "color:red">${num }</span>&nbsp;
+      						</c:when>
+      						<c:otherwise>
+      							<a href = "javascript:list('${num }')">${num }</a>&nbsp;
+      						</c:otherwise>
+      					</c:choose>
+      				</c:forEach>
+      				<c:if test = "${boardPager.curBlock  <= boardPager.totBlock}">
+      					<a href="javascript:list('${boardPager.nextPage }')">[다음 페이지]</a>
+      				</c:if>
+      				<c:if test = "${boardPager.curPage <= boardPager.totPage }">
+      					<a href = "javascript:list('${ boardPager.totPage}')">[끝]</a>
+      				</c:if>
+      			</td>
+      		</tr>
+    	</tbody>
+	</table>
+	<hr>				
+	<br>
+	<form id = "frm" action="${cpath}/board/">
 		<div>
 			<select class="form-control selectStyle" name="searchOption">
 				<option value = "">구분</option>
@@ -107,7 +107,12 @@ function list(page){
 			style="width:72px; font-size: 12px; background-color: #060606  !important;
 			margin:0px; padding: 8px;">
 	   		조회
-	   	</button><br>
+	   	</button>
+	   	<button type="button" class="btn btn-secondary"  onClick="location.href='${cpath}/board/write/'"
+			style="width:72px; font-size: 12px; background-color: #007bff  !important;
+			margin:0px; padding: 8px;">
+	   		글쓰기
+		</button>
 	</form>
 </div>
 <br>

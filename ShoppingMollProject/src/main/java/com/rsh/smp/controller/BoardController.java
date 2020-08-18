@@ -19,7 +19,7 @@ public class BoardController {
 	@Autowired BoardService boardService;
 	
 	@RequestMapping(value = "/board/")
-	public String notice(
+	public String board(
 			@RequestParam(defaultValue="notice") String kind,
 			@RequestParam(defaultValue="title") String searchOption, 
 			@RequestParam(defaultValue="") String keyword, 
@@ -38,5 +38,10 @@ public class BoardController {
         model.addAttribute("boardPager",boardPager);
         model.addAttribute("kind",kind);
         return "board";
+	}
+	
+	@RequestMapping(value = "/board/write/")
+	public String boardWrite() {
+        return "boardWrite";
 	}
 }
