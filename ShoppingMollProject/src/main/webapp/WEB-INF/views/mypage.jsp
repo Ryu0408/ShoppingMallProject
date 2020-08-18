@@ -224,7 +224,7 @@
 	    				</td>
 	    				<td class = "tdStyle" style = "vertical-align: middle;">
 	    					<p class = "font-weight-bold">
-	    						<fmt:formatNumber var = "price" value="${ordersVO.price }" type="number"/>
+	    						<fmt:formatNumber var = "price" value="${ordersVO.price * ordersVO.amount }" type="number"/>
 									${price}원
 	    					</p>
 	    				</td>

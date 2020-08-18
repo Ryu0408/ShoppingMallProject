@@ -24,12 +24,21 @@
 	float:left; margin-right: 10px;
 }
 </style>
+<script>
+$(document).ready(function(){
+	$("#btnWrite").click(function(){
+		location.href="${cpath}/board/"
+	});
+});
+function list(page){
+	location.href="${cpath}/board/?curPage="+page+"&searchOption=${searchOption}"+"&keyword=${keyword}"+"&kind=${kind}";
+}
+</script>
 <div class="container overlap">
-	<form id = "frm">
-		<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">Q&A</h6>
+		<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${kind}</h6>
 		<br>
 		<br>
-		<hr style = " margin-top: 0rem; margin-bottom: 0rem;">
+		<hr style = "margin-top: 0rem; margin-bottom: 0rem;">
 		<table class="table">
 	    	<thead>
 	      		<tr style = "text-align: center">
@@ -41,58 +50,63 @@
 	      		</tr>
 	    	</thead>
 	    	<tbody>
-	    		<c:forEach var = "boardVO" items="${listBoardVO}">
+	    		<c:forEach var = "row" items="${list}">
 	      		<tr style = "text-align: center">
-	        		<th class = "thStyle">${boardVO.boardnumber }</th>
-	        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${boardVO.boardnumber}">${boardVO.title }</a></th>
-	        		<th class = "thStyle">${boardVO.writer}</th>
-	        		<th class = "thStyle">${boardVO.register }</th>
-	        		<th class = "thStyle">${boardVO.hit }</th>
+	        		<th class = "thStyle">${row.boardnumber }</th>
+	        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${row.boardnumber}">${row.title }</a></th>
+	        		<th class = "thStyle">${row.writer}</th>
+	        		<th class = "thStyle">${row.register }</th>
+	        		<th class = "thStyle">${row.hit }</th>
 	      		</tr>
 	      		</c:forEach>
+	      		<tr>
+	      			<td colspan = "5" style = "text-align: center">
+	      				<c:if test="${boardPager.curBlock > 1 }">
+	      					<a href="javascript:list('1')">[처음]</a>
+	      				</c:if>
+	      				<c:if test = "${boardPager.curBlock>1 }">
+	      					<a href="javascript:list('${boardPager.prevPage }')">[이전 페이지]</a>
+	      				</c:if>
+	      				<c:forEach var="num" begin="${boardPager.blockBegin }"
+	      				end="${boardPager.blockEnd }">
+	      					<c:choose>
+	      						<c:when test ="${num == boardPager.curPage }">
+	      							<span style = "color:red">${num }</span>&nbsp;
+	      						</c:when>
+	      						<c:otherwise>
+	      							<a href = "javascript:list('${num }')">${num }</a>&nbsp;
+	      						</c:otherwise>
+	      					</c:choose>
+	      				</c:forEach>
+	      				<c:if test = "${boardPager.curBlock  <= boardPager.totBlock}">
+	      					<a href="javascript:list('${boardPager.nextPage }')">[다음 페이지]</a>
+	      				</c:if>
+	      				<c:if test = "${boardPager.curPage <= boardPager.totPage }">
+	      					<a href = "javascript:list('${ boardPager.totPage}')">[끝]</a>
+	      				</c:if>
+	      			</td>
+	      		</tr>
 	    	</tbody>
 		</table>
 		<hr>				
-		<div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="${cpath }/board/${listBoardVO[0].kind }/${paging.startPage -1}/${paging.cntPerPage }">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p }</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="${cpath }/board/${listBoardVO[0].kind }/${p }/${paging.cntPerPage}/">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="${cpath }/board/${listBoardVO[0].kind }/${paging.endPage+1 }/${paging.cntPerPage}/">&gt;</a>
-		</c:if>
-		</div>
 		<br>
+		<form id = "frm" action="${cpath}/board/">
 		<div>
-			<select class="form-control selectStyle">
-					<option value = "*">일주일</option>
-					<option value = "**">한달</option>
-					<option>세달</option>
-					<option>전체</option>
-			</select>
-			<select class="form-control selectStyle">
-					<option value = "*">제목</option>
-					<option value = "**">내용</option>
-					<option>글쓴이</option>
-					<option>아이디</option>
-					<option>별명</option>
+			<select class="form-control selectStyle" name="searchOption">
+				<option value = "">구분</option>
+				<option value = "title" <c:if test="${searchOption}">selected="selected"</c:if>>제목</option>
+				<option value = "content" <c:if test="${searchOption}">selected="selected"</c:if>>내용</option>
+				<option value = "writer" <c:if test="${searchOption}">selected="selected"</c:if>>글쓴이</option>
 			</select>
 		</div>
-		<input type="text" class="form-control form-control-sm"
-	    style = "width:162px; float: left; margin-right:10px">
-	    <button type="button" class="btn btn-secondary"
+		<input type = "hidden" value = "${kind }" name = "kind">
+		<input class="form-control form-control-sm"
+	    style = "width:162px; float: left; margin-right:10px" name ="keyword"
+	    value="${keyword }">
+	    <button type="submit" class="btn btn-secondary"
 			style="width:72px; font-size: 12px; background-color: #060606  !important;
 			margin:0px; padding: 8px;">
-	   		찾기
+	   		조회
 	   	</button><br>
 	</form>
 </div>

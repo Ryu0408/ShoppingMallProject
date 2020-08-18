@@ -93,10 +93,10 @@
       			<a class="nav-link" href="${cpath}/cart/">Cart</a>
     		</li>
 			<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/board/notice/1/10/">Notice</a>
+      			<a class="nav-link" href="${cpath}/board/?kind=notice&curPage=1&searchOption=title">Notice</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
-      			<a class="nav-link" href="${cpath}/board/Q&A/1/10/">Q&A</a>
+      			<a class="nav-link" href="${cpath}/board/?kind=qna&curPage=1&searchOption=title">Q&A</a>
     		</li>
     		<li class="nav-item" style="font-family:Nanum Pen Script;">
       			<a class="nav-link" href="${cpath}/review/">REVIEW</a>

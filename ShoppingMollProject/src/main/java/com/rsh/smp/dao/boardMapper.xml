@@ -5,20 +5,24 @@
 	
 <mapper namespace = "com.rsh.smp.dao.IBoardDAO">	
 
-	<select id="selectBoardCount" resultType="int">
-		SELECT COUNT(*) FROM BOARD
+	<select id="countArticle" resultType="int">
+		select count(*) from board where 
+		<if test="!keyword.equals('')">
+			${searchOption}  LIKE '%'||#{keyword}||'%' and 
+		</if>
+		kind = #{kind}
 	</select>
 	
-	<select id="selectAllboard" resultType="com.rsh.smp.vo.BoardVO">
-		SELECT * 
-			FROM (
-				SELECT ROWNUM RN, A.* 
-					FROM (
-							SELECT * 
-							FROM BOARD 
-							where kind = #{kind} ORDER BY boardnumber DESC
-							) A
-					)
-		WHERE RN BETWEEN #{vo.start} AND #{vo.end}
+	<select id="listALL" resultType="com.rsh.smp.vo.BoardVO">
+	SELECT * FROM (SELECT ROWNUM as RN, A.* FROM (
+		SELECT * FROM BOARD where 
+			<if test="!keyword.equals('')">
+				${searchOption} LIKE '%'||#{keyword}||'%' and 
+				</if>
+			kind = #{kind}
+			ORDER BY boardnumber DESC 
+		) A
+	)
+	WHERE RN BETWEEN #{start} AND #{end}
 	</select>
 </mapper>
