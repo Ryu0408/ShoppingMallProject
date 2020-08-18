@@ -5,8 +5,15 @@
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <div class="container overlap" style = "text-align: center;">
+	<textarea id = "editor4" name = "editor4"></textarea>
 </div>
 <!-- Footer Include -->
 <jsp:include page = "footer.jsp"/>
+<script src = "${cpath}/resources/ckeditor/ckeditor.js"></script>
+<script>
+	CKEDITOR.replace('editor4',{filebrowserUploadUrl:'${cpath}/image/upload/'});
+</script>
+
+
 </body>
 </html>
