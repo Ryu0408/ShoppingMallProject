@@ -108,7 +108,7 @@ function list(page){
 			margin:0px; padding: 8px;">
 	   		조회
 	   	</button>
-	   	<button type="button" class="btn btn-secondary"  onClick="location.href='${cpath}/board/write/'"
+	   	<button type="button" class="btn btn-secondary"  onClick="location.href='${cpath}/board/write/${kind}/'"
 			style="width:72px; font-size: 12px; background-color: #007bff  !important;
 			margin:0px; padding: 8px;">
 	   		글쓰기

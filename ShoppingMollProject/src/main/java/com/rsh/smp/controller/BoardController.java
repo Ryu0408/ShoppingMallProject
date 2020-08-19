@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,8 +56,9 @@ public class BoardController {
         return "board";
 	}
 	
-	@RequestMapping(value = "/board/write/")
-	public String boardWrite() {
+	@RequestMapping(value = "/board/write/{kind}/")
+	public String boardWrite(@PathVariable("kind") String kind, Model model) {
+        model.addAttribute("kind",kind);
         return "boardWrite";
 	}
 	
@@ -90,12 +92,15 @@ public class BoardController {
             out = new FileOutputStream(new File(ckUploadPath));
             out.write(bytes);
             out.flush(); // outputStram에 저장된 데이터를 전송하고 초기화
+            System.out.println("out.flush()실행");
             String callback = request.getParameter("CKEditorFuncNum");
             printWriter = response.getWriter();
             String fileUrl = request.getContextPath() + "/image/submit/?uid=" + uid + "&fileName=" + fileName;  // 작성화면
         // 업로드시 메시지 출력
           printWriter.println("{\"filename\" : \""+fileName+"\", \"uploaded\" : 1, \"url\":\""+fileUrl+"\"}");
+          System.out.println("printwirterln 실행");
           printWriter.flush();
+          System.out.println("플러시실행");
         }catch(IOException e){
             e.printStackTrace();
         } finally {
@@ -112,6 +117,8 @@ public class BoardController {
                             , @RequestParam(value="fileName") String fileName
                             , HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
+        System.out.println("이미지불러오기실행");
+
         String path = "/upload/";
         String sDirPath = path + uid + "_" + fileName;
         File imgFile = new File(sDirPath);
@@ -144,4 +151,12 @@ public class BoardController {
             }
         }
     }
+    
+	@RequestMapping(value = "/board/write/")
+	public String boardWrite(BoardVO boardVO, Model model) {
+//		boardService.insertBoard(boardVO);
+		model.addAttribute("alertContent","회원가입을 축하드립니다^^");
+		model.addAttribute("path","board/?kind=" + boardVO.getKind());
+        return "alert";
+	}
 }
