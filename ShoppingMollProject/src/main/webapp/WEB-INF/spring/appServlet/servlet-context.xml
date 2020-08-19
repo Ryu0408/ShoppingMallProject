@@ -22,6 +22,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/upload/**" location="file:/upload/" />
 	<resources location="/resources/css/" mapping="/css/**"/>
 	<resources location="/resources/img/" mapping="/img/**"/>
 	<resources location="/resources/js/" mapping="/js/**"/>
@@ -34,6 +35,13 @@
 	
 	<context:component-scan base-package="com.rsh.smp.controller" />
 	
+
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<beans:property name="maxUploadSize" value="200000000" />
+    	<beans:property name="maxInMemorySize" value="200000000" />
+    	<beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
+
 	
 	
 </beans:beans>

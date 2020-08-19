@@ -19,7 +19,7 @@
 	
 	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	 	<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
-	 	<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+	 	<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:2522:xe"/>
       	<property name="user" value="ryu0408"/>
       	<property name="password" value="tmdghks1"/>
       	<property name="maxPoolSize" value="100"/>
@@ -54,5 +54,6 @@
 		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+	
 	
 </beans>
