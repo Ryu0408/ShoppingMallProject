@@ -10,12 +10,15 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,12 +30,18 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.rsh.smp.classes.BoardPager;
 import com.rsh.smp.service.BoardService;
+import com.rsh.smp.service.LoginService;
 import com.rsh.smp.vo.BoardVO;
+import com.rsh.smp.vo.UsersVO;
 
 @Controller
 public class BoardController {
 
 	@Autowired BoardService boardService;
+	
+	@Autowired LoginService loginService;
+	
+	@Inject BCryptPasswordEncoder pwdEncoder;
 	
 	@RequestMapping(value = "/board/")
 	public String board(
@@ -57,7 +66,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board/write/{kind}/")
-	public String boardWrite(@PathVariable("kind") String kind, Model model) {
+	public String boardWrite(@PathVariable("kind") String kind, Model model, HttpSession session) {
+		String usersSession = (String) session.getAttribute("sessionID");
+		if(usersSession != null) {
+			UsersVO usersVO = loginService.selectGetUsers("id",usersSession);
+			model.addAttribute(usersVO);
+		}
         model.addAttribute("kind",kind);
         return "boardWrite";
 	}
@@ -117,8 +131,6 @@ public class BoardController {
                             , @RequestParam(value="fileName") String fileName
                             , HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
-        System.out.println("이미지불러오기실행");
-
         String path = "/upload/";
         String sDirPath = path + uid + "_" + fileName;
         File imgFile = new File(sDirPath);
@@ -154,9 +166,53 @@ public class BoardController {
     
 	@RequestMapping(value = "/board/write/")
 	public String boardWrite(BoardVO boardVO, Model model) {
-//		boardService.insertBoard(boardVO);
-		model.addAttribute("alertContent","회원가입을 축하드립니다^^");
+		if(boardVO.getUsernumber() != 0) {
+			boardService.insertBoard(boardVO);
+		}else {
+			String inputPass = boardVO.getPassword();
+			String pwd = pwdEncoder.encode(inputPass);
+			boardVO.setPassword(pwd);
+			boardService.insertBoard(boardVO);
+		}
+		model.addAttribute("alertContent","게시글이 작성되었습니다.");
 		model.addAttribute("path","board/?kind=" + boardVO.getKind());
+        return "alert";
+	}
+	
+	@RequestMapping(value = "/board/detailBoard/{boardnumber}/")
+	public String boardDetail(Model model, @PathVariable("boardnumber") String boardnumber) {
+		BoardVO boardVO = boardService.selectBoard(boardnumber);
+		model.addAttribute(boardVO);
+        return "boardDetail";
+	}
+	
+	@RequestMapping(value = "/board/passwordCheck/", method = RequestMethod.GET)
+	public String boardPasswordCheck(BoardVO boardVO, Model model) {
+		model.addAttribute(boardVO);
+        return "boardPasswordCheck";
+	}
+	
+	@RequestMapping(value = "/board/passwordCheck/", method = RequestMethod.POST)
+	public String boardPasswordCheck(Model model, BoardVO boardVO) {
+		String inputPassword = boardVO.getPassword();
+		boardVO = boardService.selectBoard(boardVO.getBoardnumber()+"");
+		boolean comparePassword =  pwdEncoder.matches(inputPassword, boardVO.getPassword());
+		if(comparePassword == true) {
+			model.addAttribute("boardVO",boardVO);
+			return "boardEdit";
+		}else {
+			model.addAttribute("alertContent","비밀번호가 틀렸습니다.");
+			model.addAttribute("path","board/detailBoard/"+boardVO.getBoardnumber()+"/");
+		}
+        return "alert";
+	}
+	
+	@RequestMapping(value = "/board/update/" , method = RequestMethod.POST)
+	public String boardUpdate(BoardVO boardVO, Model model) {
+		boardService.updateBoard(boardVO);
+		boardVO = boardService.selectBoard(boardVO.getBoardnumber()+"");
+		model.addAttribute("alertContent","게시글이 수정되었습니다.");
+		model.addAttribute("path","board/detailBoard/"+boardVO.getBoardnumber()+"/");
         return "alert";
 	}
 }

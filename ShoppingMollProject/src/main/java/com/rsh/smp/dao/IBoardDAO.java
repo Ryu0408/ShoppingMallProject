@@ -16,4 +16,10 @@ public interface IBoardDAO {
 			@Param("searchOption")String searchOption, 
 			@Param("keyword")String keyword, @Param("kind")String kind);
 
+	void insertBoard(BoardVO boardVO);
+
+	BoardVO selectBoard(@Param("boardnumber") String boardnumber);
+
+	void updateBoard(BoardVO boardVO);
+
 }

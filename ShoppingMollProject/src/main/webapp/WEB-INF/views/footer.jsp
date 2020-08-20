@@ -31,23 +31,28 @@
 		<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
       		<h6 class="text-uppercase font-weight-bold">FAVORITE MENU</h6>
         	<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        	<c:if test="${sessionScope.sessionID == null }">
        		<p style = "font-family:Nanum Pen Script;">
          		<a class="dark-grey-text" href="${cpath}/login/" style="text-decoration: none; color:#212529;">로그인</a>
         	</p>
+        	</c:if>
+        	<c:if test="${sessionScope.sessionID != null }">
+       		<p style = "font-family:Nanum Pen Script;">
+         		<a class="dark-grey-text" href="${cpath}/login/" style="text-decoration: none; color:#212529;">로그아웃</a>
+        	</p>
+        	</c:if>
+        	<c:if test="${sessionScope.sessionID == null }">
         	<p style = "font-family:Nanum Pen Script;">
           		<a class="dark-grey-text" href="${cpath}/join/" style="text-decoration: none; color:#212529;">회원가입</a>
         	</p>
+        	</c:if>
+        	<c:if test="${sessionScope.sessionID != null }">
         	<p style = "font-family:Nanum Pen Script;">
-          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">관심상품</a>
+          		<a class="dark-grey-text" href="${cpath}/join/" style="text-decoration: none; color:#212529;">마이페이지</a>
         	</p>
+        	</c:if>
         	<p style = "font-family:Nanum Pen Script;">
-          		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">장바구니</a>
-        	</p>
-        	<p style = "font-family:Nanum Pen Script;">
-        		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">주문조회</a>
-        	</p>
-        	<p style = "font-family:Nanum Pen Script;">
-        		<a class="dark-grey-text" href="#!" style="text-decoration: none; color:#212529;">마이페이지</a>
+          		<a class="dark-grey-text" href="${cpath}/cart/" style="text-decoration: none; color:#212529;">장바구니</a>
         	</p>
       	</div>
       	<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

@@ -5,38 +5,29 @@
 <!-- Header Include -->
 <jsp:include page="header.jsp"/>
 <div class="container overlap">
-	<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${kind}</h6>
+	<h6 class="text-uppercase font-weight-bold" style = "margin-top: 30px;">${boardVO.kind}</h6>
 	<br>
 	<br>
-	<form id = "frm" action="${cpath }/board/write/">
-		<input type = "hidden" id = "usernumber" name = "usernumber" 
-			<c:if test="${usersVO != null}">
-				value = "${usersVO.usernumber }"
-			</c:if>
-			<c:if test="${usersVO == null}">
-				value = "0"
-			</c:if>
-		>
-		<input type = "hidden" id = "kind" name = "kind" value = "${kind }">
+	<form id = "frm" action="${cpath }/board/update/" method="POST">
+		<input type = "hidden" id = "boardnumber" name = "boardnumber" value = ${boardVO.boardnumber}>
+		<input type = "hidden" id = "kind" name = "kind" value = "${boardVO.kind }">
 		<table class="table">
 			<tbody>
 	 			<tr>
 	   				<td style = "width:15%; font-size: 13px; text-align: center">제목</td>
 	   				<td style = "width:40%">
-	   					<input type="text" class="form-control form-control-sm" id = "title" name = "title">
+	   					<input type="text" class="form-control form-control-sm" id = "title" name = "title"
+	   					value = "${boardVO.title }">
 	   				</td>
 	   				<td style = "width:15%; font-size: 13px; text-align: center">작성자</td>
 	   				<td	style = "width:30%">
 	   					<input type="text" class="form-control form-control-sm" id = "writer" name = "writer"
-	   					<c:if test="${usersVO != null}">
-							value = "${usersVO.name }" readonly
-						</c:if>
-						>
+							value = "${boardVO.writer }">
 	   				</td>
 	 			</tr>
 	 			<tr>
 	   				<td style = "width:160px; font-size: 13px" colspan="4">	
-	   					<textarea id = "ckeditor" name = "ckeditor"></textarea>
+	   					<textarea id = "ckeditor" name = "ckeditor">${boardVO.content }</textarea>
 	   				</td>
 	 			</tr>
 	 			<tr>
@@ -50,10 +41,7 @@
 	      			</td>
 	   				<td style = "font-size: 13px; text-align: center">비밀번호</td>
 	      			<td>
-	      				<input type="password" class="form-control form-control-sm" id = "password" name = "password"	   					<c:if test="${usersVO != null}">
-							value = "${usersVO.password }" readonly
-						</c:if>
-						>
+	      				<input type="password" class="form-control form-control-sm" id = "password" name = "password">
 	      			</td>
 	    		</tr>
 		  	</tbody>
@@ -63,7 +51,7 @@
 		<button type="button" class="btn btn-secondary" onClick="checkMenu()"
 			style="width:72px; font-size: 12px; background-color: #060606  !important;
 			margin:0px; padding: 8px;">
-	   		등록
+	   		수정
 	   	</button>
 	   	<button type="button" class="btn btn-secondary"  onClick="history.go(-1)"
 			style="width:72px; font-size: 12px; background-color: #007bff  !important;

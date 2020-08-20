@@ -22,5 +22,17 @@ public class BoardService {
 		return iBoardDAO.listALL(start,end,searchOption,keyword,kind);
 	}
 
+	public void insertBoard(BoardVO boardVO) {
+		iBoardDAO.insertBoard(boardVO);
+	}
+
+	public BoardVO selectBoard(String boardnumber) {
+		return iBoardDAO.selectBoard(boardnumber);
+	}
+
+	public void updateBoard(BoardVO boardVO) {
+		iBoardDAO.updateBoard(boardVO);
+	}
+
 
 }

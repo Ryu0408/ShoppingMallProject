@@ -25,4 +25,20 @@
 	)
 	WHERE RN BETWEEN #{start} AND #{end}
 	</select>
+	
+	<insert id="insertBoard" parameterType="com.rsh.smp.vo.BoardVO">
+		insert into board(usernumber,title,writer,password,content,kind,locked)
+		values(${usernumber},#{title},#{writer},
+		#{password},#{content},#{kind},${locked})
+	</insert>
+	
+	<select id="selectBoard" parameterType="String" resultType="com.rsh.smp.vo.BoardVO">
+		select * from board where boardnumber = ${boardnumber}
+	</select>
+	
+	<update id = "updateBoard" parameterType="com.rsh.smp.vo.BoardVO">
+		update board set title = #{title}, writer = #{writer}, password = #{password},
+		content = #{content}, locked = ${locked} where boardnumber = ${boardnumber}
+	</update>
+
 </mapper>

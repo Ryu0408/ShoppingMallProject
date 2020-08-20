@@ -53,7 +53,7 @@ function list(page){
     		<c:forEach var = "row" items="${list}">
       		<tr style = "text-align: center">
         		<th class = "thStyle">${row.boardnumber }</th>
-        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${row.boardnumber}">${row.title }</a></th>
+        		<th class = "thStyle"><a href="${cpath }/board/detailBoard/${row.boardnumber}/">${row.title }</a></th>
         		<th class = "thStyle">${row.writer}</th>
         		<th class = "thStyle">${row.register }</th>
         		<th class = "thStyle">${row.hit }</th>

@@ -3,7 +3,6 @@ package com.rsh.smp.vo;
 public class BoardVO {
 	private int boardnumber;
 	private int usernumber;
-	private int nonusernumber;
 	private String title;
 	private String writer;
 	private String password;
@@ -24,12 +23,6 @@ public class BoardVO {
 	}
 	public void setUsernumber(int usernumber) {
 		this.usernumber = usernumber;
-	}
-	public int getNonusernumber() {
-		return nonusernumber;
-	}
-	public void setNonusernumber(int nonusernumber) {
-		this.nonusernumber = nonusernumber;
 	}
 	public String getTitle() {
 		return title;
